@@ -1,0 +1,30 @@
+<div ng-controller="modules.manage.controllers.app">
+    <div class="navbar navbar-default navbar-fixed-top" style="margin: 0">
+        <div>
+            <div ui-view="header">
+                <div class="navbar-header navbar-form">
+                    <button class="btn btn-default"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+                </div>
+                <div>
+                    <span class="navbar-brand"><strong>名称</strong></span>
+                </div>
+            </div>
+            <div class="navbar-right container-fluid">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="" ng-show="$state.current.name!=='app'" ng-click="$state.go('app', { appid: $stateParams.appid })"><i class="fa fa-reply fa-fw"></i> 返回应用</a>
+                        <a href="" ng-show="$state.current.name==='app'" ng-click="$state.go('app.edit', { appid: $stateParams.appid })"><i class="fa fa-cog fa-fw"></i> 应用配置</a>
+                    </li>
+                    <li><a>|</a></li>
+                    <li>
+                        <a href=""><i class="fa fa-bell fa-fw" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div ui-view="content" style="margin-top: 50px"></div>
+</div>

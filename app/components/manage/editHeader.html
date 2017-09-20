@@ -1,0 +1,19 @@
+<div ng-controller="modules.manage.controllers.editHeader">
+    <div class="navbar-header navbar-form">
+        <button class="btn btn-default"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+    </div>
+    <div ng-hide="titleEditing===true">
+        <strong><a href="" class="navbar-brand" ng-click="titleEditing=true"><u>名称</u></a></strong>
+    </div>
+    <div class="navbar-header navbar-form" ng-hide="titleEditing===false">
+        <div class="input-group">
+            <input class="form-control">
+            <div class="input-group-btn">
+                <div class="btn-group">
+                    <button class="btn btn-success" ng-click="changeTitle()"><i class="glyphicon glyphicon-ok"></i></button>
+                    <button class="btn btn-danger" ng-click="titleEditing=false"><i class="glyphicon glyphicon-remove"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

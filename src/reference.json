@@ -1,0 +1,32 @@
+{
+  "resources": {
+    "js": ["./resources/js/*.js"],
+    "css": ["./resources/css/*.css"]
+  },
+  "bootstrap": {
+    "css": [
+      "./bower_components/bootstrap/dist/css/bootstrap.min.css",
+      "./bower_components/bootstrap/dist/css/bootstrap.min.css.map"
+    ],
+    "fonts": ["./bower_components/bootstrap/dist/fonts/*"]
+  },
+  "ng-table": {
+    "js": [
+      "./bower_components/ng-table/dist/ng-table.js",
+      "./bower_components/ng-table/dist/ng-table.min.js"
+    ],
+    "css": [
+      "./bower_components/ng-table/dist/ng-table.min.css"
+    ]
+  },
+  "jquery-ui": {
+    "js": [
+      "./bower_components/jquery-ui/jquery-ui.js",
+      "./bower_components/jquery-ui/jquery-ui.min.js"
+    ]
+  },
+  "font-awesome": {
+    "css": ["./bower_components/font-awesome/css/*.css"],
+    "fonts": ["./bower_components/font-awesome/fonts/*"]
+  }
+}
