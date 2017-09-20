@@ -1,5 +1,5 @@
 <div ng-controller="modules.manage.controllers.app">
-    <div class="navbar navbar-default navbar-fixed-top" style="margin: 0">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="margin: 0">
         <div>
             <div ui-view="header">
                 <div class="navbar-header navbar-form">
@@ -26,5 +26,9 @@
             </div>
         </div>
     </div>
-    <div ui-view="content" style="margin-top: 50px"></div>
+    <div ui-view="content" class="yun-content">
+        <div class="left">
+            菜单
+        </div>
+    </div>
 </div>

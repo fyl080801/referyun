@@ -13,7 +13,7 @@ define('modules.manage.module', [
             '$urlRouterProvider',
             '$stateProvider',
             function ($urlRouterProvider, $stateProvider) {
-                $urlRouterProvider.otherwise('/app');
+                $urlRouterProvider.otherwise('/app/');
 
                 $stateProvider
                     .state('app', {

@@ -1,0 +1,21 @@
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title"><i class="glyphicon glyphicon-th-list"></i>&nbsp;组</h4>
+    </div>
+    <div class="modal-body">
+        <form name="itemform" role="form">
+            <div class="form-group">
+                <div>
+                    <label>名称：</label>
+                </div>
+                <div>
+                    <input class="form-control">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$close($data)" ng-disabled="itemform.$invalid">确定</button>
+        <button class="btn btn-default" type="button" ng-click="$dismiss()">取消</button>
+    </div>
+</div>
