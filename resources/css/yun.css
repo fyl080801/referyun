@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 .yun-content {
     position: absolute;
     top: 50px;
@@ -13,7 +17,7 @@
     bottom: 0;
     width: 250px;
     border-right-style: solid;
-    border-right-color: silver;
+    border-color: #e7e7e7;
     border-right-width: 1px;
 }
 
@@ -35,4 +39,65 @@
 
 .yun-addbtn i {
     margin: 40px 0;
+}
+
+.yun-workbench {
+    background: white;
+    width: 900px;
+    position: absolute;
+    z-index: 2048;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+    border-color: #e7e7e7;
+    border-right-style: solid;
+    border-right-width: 1px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    -webkit-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+}
+
+.yun-workbench-back {
+    background-color: black;
+    opacity: .5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2047;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.yun-workbench .yun-functions {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 205px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #e7e7e7;
+}
+
+.yun-workbench .yun-apps {
+    position: absolute;
+    top: 256px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f8f8f8;
+}
+
+.yun-app .yun-workbench {
+    left: -900px;
+}
+
+.yun-app .yun-workbench-back {
+    visibility: hidden;
 }

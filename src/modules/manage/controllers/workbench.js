@@ -1,13 +1,12 @@
-define('modules.manage.controllers.app', [
+define('modules.manage.controllers.workbench', [
     'modules.manage.module'
 ], function (module) {
     'use strict';
 
-    module.controller('modules.manage.controllers.app', [
+    module.controller('modules.manage.controllers.workbench', [
         '$scope',
-        '$modal',
         'modules.manage.services.workbenchService',
-        function ($scope, $modal, workbenchService) {
+        function ($scope, workbenchService) {
             $scope.workbenchService = workbenchService;
         }
     ]);

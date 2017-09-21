@@ -3,7 +3,8 @@
         <div>
             <div ui-view="header">
                 <div class="navbar-header navbar-form">
-                    <button class="btn btn-primary"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+                    <button class="btn btn-primary" ng-click="workbenchService.toggle()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+                    <!-- <button class="btn btn-primary" data-toggle="collapse" href="#workbench" aria-expanded="false" aria-controls="workbench"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button> -->
                 </div>
                 <div>
                     <span class="navbar-brand"><strong>名称</strong></span>
@@ -28,7 +29,29 @@
     </div>
     <div ui-view="content" class="yun-content">
         <div class="yun-left">
-            菜单
+
         </div>
+    </div>
+</div>
+<div class="yun-workbench-back"></div>
+<div class="yun-workbench" ng-controller="modules.manage.controllers.workbench">
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+            <span class="navbar-brand"><i class="glyphicon glyphicon-briefcase"></i></span>
+        </div>
+        <div class="navbar-header">
+            <span class="navbar-brand"><strong>工作台</strong></span>
+        </div>
+        <div class="navbar-right container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="close" aria-label="Close" ng-click="workbenchService.toggle()"><span aria-hidden="true">&times;</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="yun-functions"></div>
+    <div class="yun-apps">
+        aaa
     </div>
 </div>
