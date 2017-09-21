@@ -1,5 +1,5 @@
 <div ng-controller="modules.manage.controllers.edit">
-    <div class="left">
+    <div class="yun-left">
         <div class="navbar navbar-default navbar-static-top">
             <div class="navbar-form container-fluid">
                 <div class="form-group col-md-6 text-center">
@@ -11,5 +11,40 @@
             </div>
         </div>
     </div>
-    <!-- <a href="" ng-click="$state.go('app.settings', { appid: $stateParams.appid })">to settings</a> -->
+    <div class="yun-right">
+        <div class="navbar"></div>
+        <div>
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="container-fluid">
+                    <div class="col-md-4 text-center">
+                        <a class="btn btn-default yun-addbtn" ng-click="addForm()">
+                            <i class="fa fa-file-text fa-fw fa-5x text-primary" aria-hidden="true"></i>
+                            <p><strong>新建表单</strong></p>
+                            <p class="text-left text-muted">表单可用来搜集数据，并带有数据协作功能，适合进行数据上报</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a class="btn btn-default yun-addbtn">
+                            <i class="fa fa-sitemap fa-fw fa-5x text-warning" aria-hidden="true"></i>
+                            <p><strong>新建流程表单</strong></p>                            
+                            <p class="text-left text-muted">流程表单适合报销、请假申请或其他工作流</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a class="btn btn-default yun-addbtn">
+                            <i class="fa fa-list-alt fa-fw fa-5x text-success" aria-hidden="true"></i>
+                            <p><strong>新建报表</strong></p>
+                            <p class="text-left text-muted">报表适合用来进行数据汇总、结果展示，趋势分析等</p>
+                        </a>
+                    </div>
+                </div>
+                <hr/>
+                <div class="text-center">
+                    <button class="btn btn-info" ng-click="$state.go('settings', { appid: $stateParams.appid })">应用设置</button>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
 </div>

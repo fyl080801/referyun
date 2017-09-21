@@ -18,8 +18,8 @@ define('modules.manage.module', [
                 $stateProvider
                     .state('app', {
                         url: '/app/{appid}',
-                        templateUrl: 'components/manage/app.html',
-                        dependencies: ['modules.manage.requires']
+                        dependencies: ['modules.manage.requires'],
+                        templateUrl: 'components/manage/app.html'
                     });
 
                 $stateProvider
@@ -37,17 +37,10 @@ define('modules.manage.module', [
                     });
 
                 $stateProvider
-                    .state('app.settings', {
-                        url: '/settings',
+                    .state('settings', {
+                        url: '/settings/{appid}',
                         dependencies: ['modules.manage.requires'],
-                        views: {
-                            'header': {
-                                templateUrl: 'components/manage/settingsHeader.html'
-                            },
-                            'content': {
-                                templateUrl: 'components/manage/settings.html'
-                            }
-                        }
+                        templateUrl: 'components/manage/settings.html'
                     });
             }
         ]);

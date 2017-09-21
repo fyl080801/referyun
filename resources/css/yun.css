@@ -6,7 +6,7 @@
     bottom: 0;
 }
 
-.yun-content .left {
+.yun-content .yun-left {
     position: absolute;
     top: 0;
     left: 0;
@@ -15,4 +15,28 @@
     border-right-style: solid;
     border-right-color: silver;
     border-right-width: 1px;
+}
+
+.yun-content .yun-right {
+    position: absolute;
+    top: 0;
+    left: 251px;
+    bottom: 0;
+    right: 0;
+}
+
+.yun-addbtn {
+    width: 220px;
+    padding: 15px;
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    white-space: normal !important;
+}
+
+.yun-addbtn i {
+    margin: 40px 0;
+}
+
+.yun-addbtn .text-muted {
+    font-size: smaller;
 }

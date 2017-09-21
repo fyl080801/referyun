@@ -13,6 +13,23 @@ define('modules.manage.controllers.edit', [
                         templateUrl: 'components/manage/groupForm.html',
                         size: 'sm'
                     }).result
+                    .then(function (data) {
+
+                    });
+            };
+
+            $scope.addForm = function () {
+                $modal
+                    .open({
+                        templateUrl: 'components/manage/newForm.html'
+                    }).result
+                    .then(function (data) {
+
+                    });
+            };
+
+            $scope.addReport = function () {
+
             };
         }
     ]);
