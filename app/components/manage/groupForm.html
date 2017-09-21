@@ -4,12 +4,13 @@
     </div>
     <div class="modal-body">
         <form name="itemform" role="form">
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error text-danger': itemform.GroupName.$invalid }">
                 <div>
                     <label>名称：</label>
+                    <span class="pull-right" ng-show="itemform.GroupName.$invalid">*名称是必填的</span>
                 </div>
                 <div>
-                    <input class="form-control">
+                    <input name="GroupName" class="form-control" ng-model="$data.GroupName" required>
                 </div>
             </div>
         </form>
