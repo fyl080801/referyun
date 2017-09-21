@@ -7,6 +7,12 @@ define('modules.manage.controllers.edit', [
         '$scope',
         '$modal',
         function ($scope, $modal) {
+            $scope.groupSorting = false;
+
+            $scope.saveGroupSorting = function () {
+                $scope.groupSorting = false;
+            };
+
             $scope.addGroup = function () {
                 $modal
                     .open({
