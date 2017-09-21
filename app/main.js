@@ -98,6 +98,15 @@
         },
 
         // third plugin
+        'metisMenu': {
+            path: 'js/metisMenu',
+            shim: {
+                deps: ['api-check']
+            }
+        },
+        'api-check': {
+            path: 'js/api-check'
+        },
         'ng-table': {
             path: 'js/ng-table',
             shim: {

@@ -11,12 +11,14 @@
     "fonts": ["./bower_components/bootstrap/dist/fonts/*"]
   },
   "ng-table": {
-    "js": [
-      "./bower_components/ng-table/dist/ng-table.js",
-      "./bower_components/ng-table/dist/ng-table.min.js"
-    ],
     "css": [
       "./bower_components/ng-table/dist/ng-table.min.css"
+    ]
+  },
+  "api-check": {
+    "js": [
+      "./bower_components/api-check/dist/api-check.js",
+      "./bower_components/api-check/dist/api-check.min.js"
     ]
   },
   "jquery-ui": {
