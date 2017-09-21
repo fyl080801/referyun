@@ -45,7 +45,7 @@ body {
     background: white;
     width: 900px;
     position: absolute;
-    z-index: 2048;
+    z-index: 1001;
     left: 0;
     top: 0;
     height: 100%;
@@ -68,7 +68,7 @@ body {
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 2047;
+    z-index: 1000;
     -webkit-transition: opacity .15s linear;
     -o-transition: opacity .15s linear;
     transition: opacity .15s linear;
@@ -80,6 +80,7 @@ body {
     left: 0;
     right: 0;
     height: 205px;
+    padding: 40px 0;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-color: #e7e7e7;
@@ -92,6 +93,15 @@ body {
     right: 0;
     bottom: 0;
     background-color: #f8f8f8;
+    overflow: auto;
+}
+
+.yun-apps .appblock {
+    height: 150px;
+}
+
+.yun-apps .appbody {
+    height: 86px;
 }
 
 .yun-app .yun-workbench {
@@ -100,4 +110,42 @@ body {
 
 .yun-app .yun-workbench-back {
     visibility: hidden;
+}
+
+.item-circle {
+    width: 90px;
+    height: 90px;
+    padding-top: 10px;
+    margin: 0 auto;
+    -moz-border-radius: 45px;
+    -webkit-border-radius: 45px;
+    border-radius: 45px;
+}
+
+.item-circle-sm {
+    width: 70px;
+    height: 70px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    border-radius: 35px;
+    margin-left: 10px;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: x-large;
+}
+
+.circle-danger {
+    background-color: #d9534f;
+    color: #f2dede;
+}
+
+.circle-warning {
+    background-color: #f0ad4e;
+    color: #fcf8e3;
+}
+
+.circle-info {
+    background-color: #5bc0de;
+    color: #d9edf7;
 }

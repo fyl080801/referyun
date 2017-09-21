@@ -4,17 +4,16 @@
             <div ui-view="header">
                 <div class="navbar-header navbar-form">
                     <button class="btn btn-primary" ng-click="workbenchService.toggle()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
-                    <!-- <button class="btn btn-primary" data-toggle="collapse" href="#workbench" aria-expanded="false" aria-controls="workbench"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button> -->
                 </div>
                 <div>
-                    <span class="navbar-brand"><strong>名称</strong></span>
+                    <span class="navbar-brand"><strong>{{$yun.actived.appName}}</strong></span>
                 </div>
             </div>
             <div class="navbar-right container-fluid">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="" ng-show="$state.current.name!=='app'" ng-click="$state.go('app', { appid: $stateParams.appid })"><i class="fa fa-reply fa-fw"></i> 返回应用</a>
-                        <a href="" ng-show="$state.current.name==='app'" ng-click="$state.go('app.edit', { appid: $stateParams.appid })"><i class="fa fa-cog fa-fw"></i> 应用管理</a>
+                        <a href="" ng-show="$state.current.name==='app'" ng-click="$state.go('app.edit', { appid: $stateParams.appid })"><i class="fa fa-cog fa-fw"></i> 管理应用</a>
                     </li>
                     <li><a>|</a></li>
                     <li>
@@ -50,8 +49,64 @@
             </ul>
         </div>
     </div>
-    <div class="yun-functions"></div>
-    <div class="yun-apps">
-        aaa
+    <div class="yun-functions">
+        <div class="container-fluid">
+            <div class="col-md-4">
+                <a href="" class="btn-link">
+                    <div class="item-circle bg-info">
+                        <div class="item-circle-sm circle-info">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-center">成员</h4>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="" class="btn-link">
+                    <div class="item-circle bg-warning">
+                        <div class="item-circle-sm circle-warning">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-center">代办任务</h4>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="" class="btn-link">
+                    <div class="item-circle bg-danger">
+                        <div class="item-circle-sm circle-danger">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-center">发起流程</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="yun-apps panel-body">
+        <div class="container-fluid row">
+            <div class="col-md-4" ng-repeat="app in $yun.apps">
+                <div class="panel appblock" ng-class="{ 'panel-default': !app.actived, 'panel-primary': app.actived }">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body appbody" ng-click="$state.go('app', { appid: app.appId });workbenchService.toggle()">
+
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <a href="" ng-click="$state.go('app.edit', { appid: app.appId });workbenchService.toggle()"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
+                        <div class="pull-right dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="">修改名称</a></li>
+                                <li><a href="">设置主题</a></li>
+                                <li><a href="">复制</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="" ng-click="dropApp(app.appId)">删除</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-default col-md-4 appblock" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
+        </div>
     </div>
 </div>

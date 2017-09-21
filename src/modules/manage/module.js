@@ -1,5 +1,8 @@
 define('modules.manage.module', [
-    'app.application'
+    'app.application',
+    'modules.manage.configs.yun',
+    'modules.manage.configs.rootScope',
+    'modules.manage.configs.state'
 ], function (application) {
     'use strict';
 
@@ -7,7 +10,9 @@ define('modules.manage.module', [
 
     return angular
         .module('modules.manage', [
-            'ui.router'
+            'ui.bootstrap',
+            'ui.router',
+            'modules.manage.configs'
         ])
         .config([
             '$urlRouterProvider',
