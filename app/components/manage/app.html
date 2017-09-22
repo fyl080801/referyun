@@ -19,8 +19,13 @@
                     <li>
                         <a href=""><i class="fa fa-bell fa-fw" aria-hidden="true"></i></a>
                     </li>
-                    <li>
-                        <a href=""><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i></a>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">用户信息</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="">注销</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -28,85 +33,124 @@
     </div>
     <div ui-view="content" class="yun-content">
         <div class="yun-left">
+            <!--首页功能-->
+            <div class="navbar navbar-default navbar-static-top" style="margin: 0">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" style="width: 100%">
+                        <li class="text-center" ng-class="{ 'active': menuType===0 }" style="width: 50%"><a href="" ng-click="menuType=0"><i class="glyphicon glyphicon-th-list"></i> 菜单</a></li>
+                        <li class="text-center" ng-class="{ 'active': menuType===1 }" style="width: 50%"><a href="" ng-click="menuType=1"><i class="glyphicon glyphicon-heart"></i> 收藏夹</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--菜单栏-->
+            <div style="margin-top: 50px">
 
-        </div>
-    </div>
-</div>
-<div class="yun-workbench-back"></div>
-<div class="yun-workbench" ng-controller="modules.manage.controllers.workbench">
-    <div class="navbar navbar-default navbar-static-top">
-        <div class="navbar-header">
-            <span class="navbar-brand"><i class="glyphicon glyphicon-briefcase"></i></span>
-        </div>
-        <div class="navbar-header">
-            <span class="navbar-brand"><strong>工作台</strong></span>
-        </div>
-        <div class="navbar-right container-fluid">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="close" aria-label="Close" ng-click="workbenchService.toggle()"><span aria-hidden="true">&times;</span></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="yun-functions">
-        <div class="container-fluid">
-            <div class="col-md-4">
-                <a href="" class="btn-link">
-                    <div class="item-circle bg-info">
-                        <div class="item-circle-sm circle-info">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </div>
-                    </div>
-                    <h4 class="text-center">成员</h4>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="btn-link">
-                    <div class="item-circle bg-warning">
-                        <div class="item-circle-sm circle-warning">
-                            <i class="glyphicon glyphicon-calendar"></i>
-                        </div>
-                    </div>
-                    <h4 class="text-center">代办任务</h4>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="btn-link">
-                    <div class="item-circle bg-danger">
-                        <div class="item-circle-sm circle-danger">
-                            <i class="glyphicon glyphicon-edit"></i>
-                        </div>
-                    </div>
-                    <h4 class="text-center">发起流程</h4>
-                </a>
             </div>
         </div>
-    </div>
-    <div class="yun-apps panel-body">
-        <div class="container-fluid row">
-            <div class="col-md-4" ng-repeat="app in $yun.apps">
-                <div class="panel appblock" ng-class="{ 'panel-default': !app.actived, 'panel-primary': app.actived }">
-                    <div class="panel-heading"></div>
-                    <div class="panel-body appbody" ng-click="$state.go('app', { appid: app.appId });workbenchService.toggle()">
-
-                    </div>
-                    <div class="panel-footer clearfix">
-                        <a href="" ng-click="$state.go('app.edit', { appid: app.appId });workbenchService.toggle()"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
-                        <div class="pull-right dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="">修改名称</a></li>
-                                <li><a href="">设置主题</a></li>
-                                <li><a href="">复制</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="" ng-click="dropApp(app.appId)">删除</a></li>
-                            </ul>
-                        </div>
+        <div class="yun-right">
+            <div class="navbar navbar-blank navbar-static-top" style="margin: 0">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href=""><i class="glyphicon glyphicon-home"></i></a>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-default col-md-4 appblock" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
+            <!--主内容-->
+            <div style="margin-top: 50px">
+
+            </div>
         </div>
     </div>
-</div>
+    <div class="yun-workbench-back"></div>
+    <div class="yun-workbench" ng-controller="modules.manage.controllers.workbench">
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header">
+                <span class="navbar-brand"><i class="glyphicon glyphicon-briefcase"></i></span>
+            </div>
+            <div class="navbar-header">
+                <span class="navbar-brand"><strong>工作台</strong></span>
+            </div>
+            <div class="navbar-right container-fluid">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="close" aria-label="Close" ng-click="workbenchService.toggle()"><span aria-hidden="true">&times;</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="yun-functions">
+            <div class="container-fluid">
+                <div class="col-md-4">
+                    <a href="" class="btn-link">
+                        <div class="item-circle bg-info">
+                            <div class="item-circle-sm circle-info">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-center">成员</h4>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="" class="btn-link">
+                        <div class="item-circle bg-warning">
+                            <div class="item-circle-sm circle-warning">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-center">代办任务</h4>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="" class="btn-link">
+                        <div class="item-circle bg-danger">
+                            <div class="item-circle-sm circle-danger">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-center">发起流程</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="yun-apps panel-body">
+            <div class="container-fluid row">
+                <div class="col-md-4" ng-repeat="appinf in $yun.apps">
+                    <div class="panel appblock" ng-class="{ 'panel-default': !appinf.actived, 'panel-primary': appinf.actived }">
+                        <div class="panel-heading"></div>
+                        <div class="panel-body appbody" ng-click="$state.go('app', { appid: appinf.appId });workbenchService.toggle()">
+
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <a href="" ng-click="$state.go('app.edit', { appid: appinf.appId });workbenchService.toggle()"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
+                            <div class="pull-right dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="" ng-click="appinf.nameEditing=true">修改名称</a></li>
+                                    <li><a href="">设置主题</a></li>
+                                    <li><a href="">复制</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="" ng-click="dropApp(appinf.appId)">删除</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center" ng-hide="appinf.nameEditing===true">
+                        <label ng-class="{ 'label label-primary': appinf.actived }">{{appinf.appName}}</label>
+                    </p>
+                    <div class="text-center" ng-show="appinf.nameEditing===true">
+                        <form name="nameForm">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" ng-model="appinf.appName" required>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-success" ng-disabled="nameForm.$invaild" ng-click="changeAppName(appinf)"><i class="glyphicon glyphicon-ok"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <button class="btn btn-default col-md-4 appblock" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
+            </div>
+        </div>
+    </div>

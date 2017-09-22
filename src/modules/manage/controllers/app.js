@@ -9,6 +9,8 @@ define('modules.manage.controllers.app', [
         'modules.manage.services.workbenchService',
         function ($scope, $modal, workbenchService) {
             $scope.workbenchService = workbenchService;
+
+            $scope.menuType = 0; // 0菜单，1收藏
         }
     ]);
 });

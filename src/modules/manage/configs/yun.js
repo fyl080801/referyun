@@ -7,8 +7,9 @@ define('modules.manage.configs.yun', [
         '$provide',
         function ($provide) {
             $provide.constant('$yun', {
-                apps: [],
-                actived: null
+                apps: [], // 应用
+                actived: null, // 当前活动
+                groups: {} // 分组
             });
         }
     ]);

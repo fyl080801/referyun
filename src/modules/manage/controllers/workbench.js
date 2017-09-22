@@ -16,7 +16,8 @@ define('modules.manage.controllers.workbench', [
                 var newApp = {
                     appId: 'app' + ($yun.apps.length + 1),
                     appName: '未命名应用',
-                    actived: false
+                    actived: false,
+                    nameEditing: false
                 };
                 $yun.apps.push(newApp);
 
@@ -44,6 +45,10 @@ define('modules.manage.controllers.workbench', [
                             // 没有app时需跳转到创建界面
                         }
                     });
+            };
+
+            $scope.changeAppName = function (appinf) {
+                appinf.nameEditing = false;
             };
         }
     ]);
