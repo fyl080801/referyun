@@ -13,16 +13,15 @@ define('modules.manage.controllers.workbench', [
             $scope.workbenchService = workbenchService;
 
             $scope.addApp = function () {
-                var newApp = {
+                $yun.apps.push({
                     appId: (Date.parse(new Date()) / 1000) + '',
                     appName: '未命名应用',
                     actived: false,
                     nameEditing: false
-                };
-                $yun.apps.push(newApp);
+                });
 
                 $state.go('app', {
-                    appid: newApp.appId
+                    appid: $yun.apps[$yun.apps.length - 1].appId
                 });
             };
 
