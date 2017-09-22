@@ -134,10 +134,10 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center" ng-hide="appinf.nameEditing===true">
+                    <p class="text-center" ng-hide="appinf.nameEditing===true" style="height: 40px">
                         <label ng-class="{ 'label label-primary': appinf.actived }">{{appinf.appName}}</label>
                     </p>
-                    <div class="text-center" ng-show="appinf.nameEditing===true">
+                    <div class="text-center" ng-show="appinf.nameEditing===true" style="height: 40px">
                         <form name="nameForm">
                             <div class="form-group">
                                 <div class="input-group">
@@ -150,7 +150,9 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn btn-default col-md-4 appblock" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
+                <div class="col-md-4">
+                    <button class="btn btn-default appblock" style="width: 100%" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
+                </div>
             </div>
         </div>
     </div>
