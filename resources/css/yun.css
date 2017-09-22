@@ -58,8 +58,6 @@ body {
     border-color: #e7e7e7;
     border-right-style: solid;
     border-right-width: 1px;
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     -webkit-transition: all 0.2s ease 0s;
     -o-transition: all 0.2s ease 0s;
     transition: all 0.2s ease 0s;
@@ -111,6 +109,8 @@ body {
 
 .yun-app .yun-workbench {
     left: -900px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
 }
 
 .yun-app .yun-workbench-back {
