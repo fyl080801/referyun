@@ -14,7 +14,7 @@ define('modules.manage.controllers.workbench', [
 
             $scope.addApp = function () {
                 var newApp = {
-                    appId: 'app' + ($yun.apps.length + 1),
+                    appId: (Date.parse(new Date()) / 1000) + '',
                     appName: '未命名应用',
                     actived: false,
                     nameEditing: false

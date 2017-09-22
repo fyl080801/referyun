@@ -21,6 +21,13 @@ define('modules.manage.module', [
                 $urlRouterProvider.otherwise('/app/');
 
                 $stateProvider
+                    .state('welcome', {
+                        url: '/welcome',
+                        dependencies: ['modules.manage.requires'],
+                        templateUrl: 'components/manage/welcome.html'
+                    });
+
+                $stateProvider
                     .state('app', {
                         url: '/app/{appid}',
                         dependencies: ['modules.manage.requires'],
