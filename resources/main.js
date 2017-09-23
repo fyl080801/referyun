@@ -59,7 +59,7 @@
     }
 
     function initDebug(config, nonDebugs) {
-        var debug = eval(app.getAttribute('data-debug')) ? '' : '.min';
+        var debug = app.getAttribute('data-debug') === 'true' ? '' : '.min';
         for (var index in config.paths) {
             var isDebug = true;
             for (var i in nonDebugs) {

@@ -95,7 +95,7 @@ gulp.task('pack_modules', function () {
 
         gulp.src('src/**/*.js')
             .pipe(amdOptimize(requiresPath, {
-                exclude: [referencePath],
+                exclude: [referencePath, 'metisMenu'],
                 configFile: 'src/build.js',
                 baseUrl: 'src'
             }))

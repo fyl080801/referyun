@@ -23,6 +23,7 @@
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="">用户信息</a></li>
+                            <li><a href="">个性化设置</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="">注销</a></li>
                         </ul>
@@ -43,8 +44,8 @@
                 </div>
             </div>
             <!--菜单栏-->
-            <div style="margin-top: 50px">
-
+            <div class="yun-nav">
+                <div ng-show="menuType===0" class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="view"></div>
             </div>
         </div>
         <div class="yun-right">
@@ -117,8 +118,14 @@
                 <div class="col-md-4" ng-repeat="appinf in $yun.apps">
                     <div class="panel appblock" ng-class="{ 'panel-default': !appinf.actived, 'panel-primary': appinf.actived }">
                         <div class="panel-heading"></div>
-                        <div class="panel-body appbody" ng-click="$state.go('app', { appid: appinf.appId });workbenchService.toggle()">
-
+                        <div class="panel-body appbody">
+                            <a href="" role="button" ng-click="$state.go('app', { appid: appinf.appId });workbenchService.toggle()">
+                                <p class="text-center">
+                                    <span ng-class="{ 'text-muted': !appinf.actived, 'text-primary': appinf.actived }" style="font-size: 36pt">
+                                        <i ng-class="{true: appinf.icon, false: 'glyphicon glyphicon-th-large'}[appinf.icon!==undefined && appinf.icon!=='']"></i>
+                                    </span>
+                                </p>
+                            </a>
                         </div>
                         <div class="panel-footer clearfix">
                             <a href="" ng-click="$state.go('app.edit', { appid: appinf.appId });workbenchService.toggle()"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
@@ -126,8 +133,11 @@
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><a href="" ng-click="appinf.nameEditing=true">修改名称</a></li>
-                                    <li><a href="">设置主题</a></li>
+                                    <li><a href="" ng-click="changeAppIcon(appinf)">修改样式</a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li><a href="">复制</a></li>
+                                    <li ng-show="appinf.enabled"><a href="" ng-click="appinf.enabled=false">禁用</a></li>
+                                    <li ng-show="!appinf.enabled"><a href="" ng-click="appinf.enabled=true">启用</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="" ng-click="dropApp(appinf.appId)">删除</a></li>
                                 </ul>
@@ -138,16 +148,14 @@
                         <label ng-class="{ 'label label-primary': appinf.actived }">{{appinf.appName}}</label>
                     </p>
                     <div class="text-center" ng-show="appinf.nameEditing===true" style="height: 40px">
-                        <form name="nameForm">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input class="form-control" ng-model="appinf.appName" required>
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-success" ng-disabled="nameForm.$invaild" ng-click="changeAppName(appinf)"><i class="glyphicon glyphicon-ok"></i></button>
-                                    </div>
+                        <div class="form-group">
+                            <div class="input-group" ng-class="{ 'has-error': appinf.appName===''||appinf.appName===null }">
+                                <input class="form-control" ng-model="appinf.appName">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-success" ng-disabled="appinf.appName===''||appinf.appName===null" ng-click="changeAppName(appinf)"><i class="glyphicon glyphicon-ok"></i></button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -156,3 +164,4 @@
             </div>
         </div>
     </div>
+</div>

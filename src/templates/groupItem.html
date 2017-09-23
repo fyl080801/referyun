@@ -1,0 +1,17 @@
+<li mode="mode">
+    <!-- <a ng-if="!groupItem.templateUrl&&!groupItem.src" href="">
+            <i class="{{groupItem.icon}}"></i> <span>{{groupItem.text}}</span>
+            <i ng-if="groupItem.links.length>0" class="fa fa-caret-left arrow" aria-hidden="true"></i></a>
+    <a ng-if="groupItem.templateUrl||groupItem.src" href="" ng-click="openLink(groupItem)">
+            <i class="{{groupItem.icon}}"></i> <span>{{groupItem.text}}</span>
+        </a> -->
+    <a href="">
+        <i ng-class="{}"></i> {{groupItem.groupName}} 
+        <i ng-if="mode==='sorting'" class="fa fa-arrows arrow-action" aria-hidden="true"></i>
+        <i ng-if="groupItem.isLeaf&&mode==='view'" class="fa fa-star-o arrow-action" aria-hidden="true"></i>
+        <i ng-if="groupItem.isLeaf===false&&mode==='view'" class="fa fa-caret-left arrow" aria-hidden="true"></i>
+    </a>
+    <ul ng-if="!groupItem.isLeaf || groupItem.children.length" class="nav nav-second-level" aria-expanded="false">
+        <li sys-link-item="linkItem" ng-repeat="linkItem in groupItem.links track by $index" ng-repeated></li>
+    </ul>
+</li>

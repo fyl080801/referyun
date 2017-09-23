@@ -6,10 +6,11 @@ define([
     module.controller('modules.manage.controllers.workbench', [
         '$scope',
         '$state',
+        '$modal',
         '$yun',
         'app.services.popupService',
         'modules.manage.services.workbenchService',
-        function ($scope, $state, $yun, popupService, workbenchService) {
+        function ($scope, $state, $modal, $yun, popupService, workbenchService) {
             $scope.workbenchService = workbenchService;
 
             $scope.addApp = function () {
@@ -17,6 +18,7 @@ define([
                     appId: (Date.parse(new Date()) / 1000) + '',
                     appName: '未命名应用',
                     actived: false,
+                    enabled: true,
                     nameEditing: false
                 });
 
@@ -48,6 +50,16 @@ define([
 
             $scope.changeAppName = function (appinf) {
                 appinf.nameEditing = false;
+            };
+
+            $scope.changeAppIcon = function (appinf) {
+                $modal
+                    .open({
+                        templateUrl: 'views/manage/icons.html'
+                    }).result
+                    .then(function (data) {
+                        appinf.icon = data;
+                    });
             };
         }
     ]);

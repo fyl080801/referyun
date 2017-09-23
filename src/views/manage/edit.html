@@ -1,6 +1,6 @@
 <div ng-controller="modules.manage.controllers.edit">
-    <div class="yun-left" ng-hide="groupSorting===true">
-        <div class="navbar navbar-default navbar-static-top">
+    <div class="yun-left yun-nav" ng-hide="groupSorting===true">
+        <div class="navbar navbar-default navbar-static-top" style="margin: 0">
             <div class="navbar-form container-fluid">
                 <div class="form-group col-md-6 text-center">
                     <a href="" class="form-control-static" ng-click="addGroup()"><i class="fa fa-plus-circle" aria-hidden="true"></i> 新建分组</a>
@@ -10,15 +10,17 @@
                 </div>
             </div>
         </div>
+        <div class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="editing"></div>
     </div>
-    <div class="yun-left" ng-hide="!groupSorting">
-        <div class="navbar navbar-default navbar-static-top">
+    <div class="yun-left yun-nav" ng-hide="!groupSorting">
+        <div class="navbar navbar-default navbar-static-top" style="margin: 0">
             <div class="navbar-form container-fluid">
                 <div class="form-group col-md-12 text-center">
                     <a href="" class="form-control-static" ng-click="saveGroupSorting()"><i class="fa fa-check-circle-o" aria-hidden="true"></i> 完成排序</a>
                 </div>
             </div>
         </div>
+        <div class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="sorting"></div>
     </div>
     <div class="yun-right">
         <div class="navbar"></div>

@@ -119,6 +119,9 @@ body {
     visibility: hidden;
 }
 
+
+/*圆形*/
+
 .item-circle {
     width: 74px;
     height: 74px;
@@ -155,4 +158,61 @@ body {
 .circle-info {
     background-color: #5bc0de;
     color: #d9edf7;
+}
+
+
+/* 导航*/
+
+.yun-nav .nav>li>a {
+    padding: 10px 20px 10px 25px;
+}
+
+.yun-nav .nav>li>a:focus,
+.yun-nav .nav>li>a:hover {
+    color: #fff;
+}
+
+.yun-nav .nav>li>a i {
+    margin-right: 6px;
+}
+
+.yun-nav .nav>li.active {
+    border-left: 4px solid;
+}
+
+.yun-nav .nav.nav-second-level>li.active {
+    border: none;
+}
+
+.yun-nav .nav>li>.nav-second-level li a {
+    font-size: 12px;
+    border-radius: 0 2px 2px 0;
+}
+
+.yun-nav .nav-second-level li,
+.yun-nav .nav-third-level li {
+    border-bottom: none !important;
+}
+
+.yun-nav .nav-second-level li a {
+    padding: 7px 15px 7px 10px;
+    padding-left: 52px
+}
+
+.yun-nav .nav-second-level li:last-child {
+    margin-bottom: 10px
+}
+
+.yun-nav .nav-third-level li a {
+    padding-left: 62px
+}
+
+.arrow {
+    float: right;
+    margin-top: 2px;
+}
+
+.arrow-action {
+    float: right;
+    margin-top: 2px;
 }

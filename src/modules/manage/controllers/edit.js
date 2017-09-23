@@ -5,8 +5,10 @@ define([
 
     module.controller('modules.manage.controllers.edit', [
         '$scope',
+        '$stateParams',
         '$modal',
-        function ($scope, $modal) {
+        '$yun',
+        function ($scope, $stateParams, $modal, $yun) {
             $scope.groupSorting = false;
 
             $scope.saveGroupSorting = function () {
@@ -20,7 +22,13 @@ define([
                         size: 'sm'
                     }).result
                     .then(function (data) {
-
+                        $yun.groups[$yun.actived.appId] = $yun.groups[$yun.actived.appId] ? $yun.groups[$yun.actived.appId] : [];
+                        $yun.groups[$yun.actived.appId].push({
+                            groupName: data.GroupName,
+                            isLeaf: false,
+                            icon: '',
+                            children: []
+                        });
                     });
             };
 
