@@ -1,20 +1,17 @@
-/**
- * Created by fyl08 on 2016/12/22.
- */
-(function (app, options) {
+(function (options) {
     'use strict';
 
-    var requires = ['app.application'],
+    var requires = ['app/application'],
         config = {
             urlArgs: app.getAttribute('data-args'),
             paths: {
-                'patch': 'js/patch',
+                'rcss': 'js/app',
                 'angular': 'js/app',
                 'app': 'js/app',
-                'app.application': 'js/app.application'
+                'app/application': 'js/app.application'
             },
             shim: {
-                'app.application': {
+                'app/application': {
                     deps: ['app']
                 }
             }
@@ -22,7 +19,7 @@
 
     initBrowserPatch(config);
     initReference(requires, config, options.references);
-    initModules(requires, options.required);
+    initModules(requires, options);
     initDebug(config, options.noDebugs);
     startup(requires, config);
 
@@ -33,8 +30,7 @@
                 angular.bootstrap(document, ['app.application']);
                 angular.element(document).find('html')
                     .attr('id', 'ng-app')
-                    .attr('ng-app', 'app.application')
-                    .attr('data-index', app.getAttribute('data-index'));
+                    .attr('ng-app', 'app.application');
             });
         });
     }
@@ -56,9 +52,9 @@
         }
     }
 
-    function initModules(requires, required) {
-        for (var idx in required) {
-            requires.push(required[idx]);
+    function initModules(requires, options) {
+        for (var idx in options.requires) {
+            requires.push(options.requires[idx]);
         }
     }
 
@@ -77,27 +73,34 @@
     }
 
     function initBrowserPatch(config) {
-        if (document.getElementsByTagName('html')[0].getAttribute('data-html-type') === 'no-js lte-ie8')
-            config.shim.app = {
-                deps: ['patch']
+        if (document.getElementsByTagName('html')[0].getAttribute('data-html-type') === 'no-js lte-ie8') {
+            config.map = {
+                '*': {
+                    'patch': 'js/patch'
+                }
             };
+        }
     }
-})(document.getElementById('app'), {
+})({
+    app: document.getElementById('app'),
     references: {
         // modules
-        'modules.manage.module': {
-            path: 'js/modules'
-        },
-
-        // requires
-        'modules.manage.requires': {
-            path: 'js/module.manage',
+        'modules/manage/module': {
+            path: 'js/modules',
             shim: {
-                deps: ['modules.manage.module']
+                deps: ['app/application']
             }
         },
 
-        // third plugin
+        // requires
+        'modules/manage/requires': {
+            path: 'js/modules.manage',
+            shim: {
+                deps: ['modules/manage/module']
+            }
+        },
+
+        // references
         'metisMenu': {
             path: 'js/metisMenu',
             shim: {
@@ -120,8 +123,12 @@
             }
         }
     },
-    required: [
-        'modules.manage.module'
+    requires: [
+        'rcss!css/bootstrap.min.css',
+        'rcss!css/metisMenu.min.css',
+        'rcss!css/font-awesome.min.css',
+        'rcss!css/yun.css',
+        'modules/manage/module'
     ],
     noDebugs: []
 });

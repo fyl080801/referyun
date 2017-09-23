@@ -1,5 +1,5 @@
-define('modules.manage.configs.rootScope', [
-    'modules.manage.configs'
+define( [
+    'modules/manage/configs'
 ], function (configs) {
     'use strict';
 

@@ -1,5 +1,5 @@
-define('modules.manage.controllers.edit', [
-    'modules.manage.module'
+define([
+    'modules/manage/module'
 ], function (module) {
     'use strict';
 
@@ -16,7 +16,7 @@ define('modules.manage.controllers.edit', [
             $scope.addGroup = function () {
                 $modal
                     .open({
-                        templateUrl: 'components/manage/groupForm.html',
+                        templateUrl: 'views/manage/groupForm.html',
                         size: 'sm'
                     }).result
                     .then(function (data) {
@@ -27,7 +27,7 @@ define('modules.manage.controllers.edit', [
             $scope.addForm = function () {
                 $modal
                     .open({
-                        templateUrl: 'components/manage/newForm.html'
+                        templateUrl: 'views/manage/newForm.html'
                     }).result
                     .then(function (data) {
 

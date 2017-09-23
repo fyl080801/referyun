@@ -1,8 +1,8 @@
-define('modules.manage.module', [
-    'app.application',
-    'modules.manage.configs.yun',
-    'modules.manage.configs.rootScope',
-    'modules.manage.configs.state'
+define([
+    'app/application',
+    'modules/manage/configs/yun',
+    'modules/manage/configs/rootScope',
+    'modules/manage/configs/state'
 ], function (application) {
     'use strict';
 
@@ -23,27 +23,27 @@ define('modules.manage.module', [
                 $stateProvider
                     .state('welcome', {
                         url: '/welcome',
-                        dependencies: ['modules.manage.requires'],
-                        templateUrl: 'components/manage/welcome.html'
+                        dependencies: ['modules/manage/requires'],
+                        templateUrl: 'views/manage/welcome.html'
                     });
 
                 $stateProvider
                     .state('app', {
                         url: '/app/{appid}',
-                        dependencies: ['modules.manage.requires'],
-                        templateUrl: 'components/manage/app.html'
+                        dependencies: ['modules/manage/requires'],
+                        templateUrl: 'views/manage/app.html'
                     });
 
                 $stateProvider
                     .state('app.edit', {
                         url: '/edit',
-                        dependencies: ['modules.manage.requires'],
+                        dependencies: ['modules/manage/requires'],
                         views: {
                             'header': {
-                                templateUrl: 'components/manage/editHeader.html'
+                                templateUrl: 'views/manage/editHeader.html'
                             },
                             'content': {
-                                templateUrl: 'components/manage/edit.html'
+                                templateUrl: 'views/manage/edit.html'
                             }
                         }
                     });
@@ -51,8 +51,8 @@ define('modules.manage.module', [
                 $stateProvider
                     .state('settings', {
                         url: '/settings/{appid}',
-                        dependencies: ['modules.manage.requires'],
-                        templateUrl: 'components/manage/settings.html'
+                        dependencies: ['modules/manage/requires'],
+                        templateUrl: 'views/manage/settings.html'
                     });
             }
         ]);

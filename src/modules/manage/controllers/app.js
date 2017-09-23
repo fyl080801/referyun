@@ -1,5 +1,5 @@
-define('modules.manage.controllers.app', [
-    'modules.manage.module'
+define([
+    'modules/manage/module'
 ], function (module) {
     'use strict';
 

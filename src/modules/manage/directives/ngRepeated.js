@@ -1,5 +1,5 @@
-define('modules.manage.directives.ngRepeated', [
-    'modules.manage.module'
+define([
+    'modules/manage/module'
 ], function (module) {
     'use strict';
 

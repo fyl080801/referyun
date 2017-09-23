@@ -1,5 +1,5 @@
-define('modules.manage.configs.state', [
-    'modules.manage.configs'
+define([
+    'modules/manage/configs'
 ], function (configs) {
     'use strict';
 

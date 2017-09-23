@@ -1,5 +1,5 @@
-define('modules.manage.configs.yun', [
-    'modules.manage.configs'
+define([
+    'modules/manage/configs'
 ], function (configs) {
     'use strict';
 
