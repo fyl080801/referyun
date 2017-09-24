@@ -49,6 +49,41 @@ define([
                     });
 
                 $stateProvider
+                    .state('app.editform', {
+                        url: '/editform/{formid}',
+                        dependencies: ['modules/manage/requires'],
+                        views: {
+                            'header': {
+                                templateUrl: 'views/manage/formHeader.html'
+                            },
+                            'content': {
+                                template: '<div class="yun-content-full" ui-view></div>'
+                            }
+                        }
+                    });
+
+                $stateProvider
+                    .state('app.editform.layout', {
+                        url: '/layout',
+                        dependencies: ['modules/manage/requires'],
+                        templateUrl: 'views/manage/formLayout.html'
+                    });
+
+                $stateProvider
+                    .state('app.editform.data', {
+                        url: '/layout',
+                        dependencies: ['modules/manage/requires'],
+                        templateUrl: 'views/manage/formData.html'
+                    });
+
+                $stateProvider
+                    .state('app.editform.setting', {
+                        url: '/layout',
+                        dependencies: ['modules/manage/requires'],
+                        templateUrl: 'views/manage/formSetting.html'
+                    });
+
+                $stateProvider
                     .state('settings', {
                         url: '/settings/{appid}',
                         dependencies: ['modules/manage/requires'],

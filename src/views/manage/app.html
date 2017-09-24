@@ -43,7 +43,8 @@
             </div>
             <!--菜单栏-->
             <div class="yun-nav">
-                <div ng-show="menuType===0" class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="view"></div>
+                <!-- <div ng-show="menuType===0" class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="view"></div> -->
+                <div tree-view ng-show="menuType===0" tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
             </div>
         </div>
         <div class="yun-right">

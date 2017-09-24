@@ -1,5 +1,6 @@
 define([
     'modules/manage/directives/treeView',
+    'modules/manage/services/utility',
     'modules/manage/services/workbenchService',
     'modules/manage/services/messageService',
     'modules/manage/controllers/app',

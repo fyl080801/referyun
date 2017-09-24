@@ -9,13 +9,14 @@ define([
         '$modal',
         '$yun',
         'app.services.popupService',
+        'modules.manage.services.utility',
         'modules.manage.services.workbenchService',
-        function ($scope, $state, $modal, $yun, popupService, workbenchService) {
+        function ($scope, $state, $modal, $yun, popupService, utility, workbenchService) {
             $scope.workbenchService = workbenchService;
 
             $scope.addApp = function () {
                 $yun.apps.push({
-                    appId: (Date.parse(new Date()) / 1000) + '',
+                    appId: utility.uid(),
                     appName: '未命名应用',
                     actived: false,
                     enabled: true,

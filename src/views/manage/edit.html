@@ -11,10 +11,6 @@
             </div>
         </div>
         <div tree-view tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
-        <!-- <treecontrol class="tree-classic" tree-model="$yun.groups[$yun.actived.appId]">
-            {{node.groupName}}
-        </treecontrol> -->
-        <!-- <div class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="editing"></div> -->
     </div>
     <div class="yun-left yun-nav" ng-hide="!groupSorting">
         <div class="navbar navbar-default navbar-static-top" style="margin: 0">
@@ -25,10 +21,6 @@
             </div>
         </div>
         <div tree-view tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
-        <!-- <treecontrol class="tree-classic" tree-model="$yun.groups[$yun.actived.appId]">
-            {{node.groupName}}
-        </treecontrol> -->
-        <!-- <div class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="sorting"></div> -->
     </div>
     <div class="yun-right">
         <div class="navbar"></div>
@@ -45,7 +37,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 text-center">
-                        <a class="btn btn-default yun-addbtn">
+                        <a class="btn btn-default yun-addbtn" ng-click="addFlow()">
                             <i class="fa fa-sitemap fa-fw fa-5x text-warning" aria-hidden="true"></i>
                             <p><strong>新建流程表单</strong></p>
                             <hr/>
@@ -53,7 +45,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 text-center">
-                        <a class="btn btn-default yun-addbtn">
+                        <a class="btn btn-default yun-addbtn" ng-click="addReport()">
                             <i class="fa fa-bar-chart fa-fw fa-5x text-success" aria-hidden="true"></i>
                             <p><strong>新建报表</strong></p>
                             <hr/>

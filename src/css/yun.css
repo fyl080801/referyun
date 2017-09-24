@@ -15,6 +15,14 @@ body {
     bottom: 0;
 }
 
+.yun-content-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 .yun-content .yun-left {
     position: absolute;
     top: 0;
@@ -203,6 +211,10 @@ body {
 }
 
 .yun-headnav .nav>li>a {
+    line-height: 14px;
+}
+
+.yun-headnav .bigfont .nav>li>a {
     line-height: 16px;
     font-size: 18px;
 }

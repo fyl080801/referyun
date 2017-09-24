@@ -1,11 +1,15 @@
 <div>
-    <div ng-hide="titleEditing===true">
+    <div>
         <strong><span  class="navbar-brand">成员管理</span></strong>
     </div>
     <div class="navbar navbar-inverse navbar-fixed-top yun-headnav" style="width: 250px;">
         <ul class="nav navbar-nav" style="width: 100%">
-            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.user' }" style="width: 50%"><a href="" ng-click="$state.go('app.user', { appid: $stateParams.appid })">用户</a></li>
-            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.admin' }" style="width: 50%"><a href="" ng-click="$state.go('app.admin', { appid: $stateParams.appid })">管理员</a></li>
+            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.user' }" style="width: 50%">
+                <a href="" ng-click="$state.go('app.user', { appid: $stateParams.appid })"><i class="glyphicon glyphicon-user"></i> 用户</a>
+            </li>
+            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.admin' }" style="width: 50%">
+                <a href="" ng-click="$state.go('app.admin', { appid: $stateParams.appid })"><i class="glyphicon glyphicon-education"></i> 管理员</a>
+            </li>
         </ul>
     </div>
 </div>
