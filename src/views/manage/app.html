@@ -1,13 +1,11 @@
 <div ng-controller="modules.manage.controllers.app">
     <div class="navbar navbar-inverse navbar-fixed-top" style="margin: 0">
         <div>
+            <div class="navbar-header navbar-form">
+                <button class="btn btn-primary" ng-click="workbenchService.toggle()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+            </div>
             <div ui-view="header">
-                <div class="navbar-header navbar-form">
-                    <button class="btn btn-primary" ng-click="workbenchService.toggle()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
-                </div>
-                <div>
-                    <span class="navbar-brand"><strong>{{$yun.actived.appName}}</strong></span>
-                </div>
+                <span class="navbar-brand"><strong>{{$yun.actived.appName}}</strong></span>
             </div>
             <div class="navbar-right container-fluid">
                 <ul class="nav navbar-nav">
@@ -38,7 +36,7 @@
             <div class="navbar navbar-default navbar-static-top" style="margin: 0">
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" style="width: 100%">
-                        <li class="text-center" ng-class="{ 'active': menuType===0 }" style="width: 50%"><a href="" ng-click="menuType=0"><i class="glyphicon glyphicon-th-list"></i> 菜单</a></li>
+                        <li class="text-center" ng-class="{ 'active': menuType===0 }" style="width: 50%"><a href="" ng-click="menuType=0"><i class="glyphicon glyphicon-th-list"></i> 应用菜单</a></li>
                         <li class="text-center" ng-class="{ 'active': menuType===1 }" style="width: 50%"><a href="" ng-click="menuType=1"><i class="glyphicon glyphicon-heart"></i> 收藏夹</a></li>
                     </ul>
                 </div>
@@ -79,10 +77,11 @@
                 </ul>
             </div>
         </div>
+        <!--功能: start-->
         <div class="yun-functions">
             <div class="container-fluid">
                 <div class="col-md-4">
-                    <a href="" class="btn-link">
+                    <a href="" class="btn-link" ng-click="$state.go('app.user', { appid: $stateParams.appId })">
                         <div class="item-circle bg-info">
                             <div class="item-circle-sm circle-info">
                                 <i class="glyphicon glyphicon-user"></i>
@@ -113,9 +112,11 @@
                 </div>
             </div>
         </div>
+        <!--功能: end-->
         <div class="yun-apps panel-body">
             <div class="container-fluid row">
-                <div class="col-md-4" ng-repeat="appinf in $yun.apps">
+                <!--应用图标: start-->
+                <div class="col-md-3" ng-repeat="appinf in $yun.apps">
                     <div class="panel appblock" ng-class="{ 'panel-default': !appinf.actived, 'panel-primary': appinf.actived }">
                         <div class="panel-heading"></div>
                         <div class="panel-body appbody">
@@ -158,7 +159,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <!--应用图标: end-->
+                <div class="col-md-3">
                     <button class="btn btn-default appblock" style="width: 100%" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
                 </div>
             </div>

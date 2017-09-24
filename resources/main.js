@@ -85,7 +85,7 @@
     app: document.getElementById('app'),
     references: {
         // modules
-        'modules/manage/module': {
+        'modules': {
             path: 'js/modules',
             shim: {
                 deps: ['app/application']
@@ -96,7 +96,13 @@
         'modules/manage/requires': {
             path: 'js/modules.manage',
             shim: {
-                deps: ['modules/manage/module']
+                deps: ['modules']
+            }
+        },
+        'modules/member/requires': {
+            path: 'js/modules.member',
+            shim: {
+                deps: ['modules', 'modules/manage/requires']
             }
         },
 
@@ -128,7 +134,7 @@
         'rcss!css/metisMenu.min.css',
         'rcss!css/font-awesome.min.css',
         'rcss!css/yun.css',
-        'modules/manage/module'
+        'modules'
     ],
     noDebugs: []
 });

@@ -3,7 +3,7 @@ body {
 }
 
 .navbar-blank {
-    background-color: white;
+    background-color: transparent;
     border-color: #e7e7e7;
 }
 
@@ -161,6 +161,26 @@ body {
 }
 
 
+/*顶部导航*/
+
+.yun-headnav {
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom-style: none;
+}
+
+.yun-headnav .nav>li.active {
+    border-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: grey;
+}
+
+.yun-headnav .nav>li>a {
+    line-height: 16px;
+    font-size: 18px;
+}
+
+
 /* 导航*/
 
 .yun-nav .nav>li>a {
@@ -215,4 +235,39 @@ body {
 .arrow-action {
     float: right;
     margin-top: 2px;
+}
+
+
+/*成员*/
+
+.yun-member {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f7f7f7;
+    overflow: auto;
+}
+
+.yun-member .yun-member-function {
+    position: relative;
+    width: 1078px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border: 1px solid #e7eaf1;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .05);
+}
+
+.yun-member .yun-member-function .yun-member-left {
+    position: absolute;
+    width: 250px;
+    background-color: #fafcfe;
+}
+
+.yun-member .yun-member-function .yun-member-right {
+    position: relative;
+    margin-left: 251px;
 }
