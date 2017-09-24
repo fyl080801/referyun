@@ -134,6 +134,7 @@
         'rcss!css/metisMenu.min.css',
         'rcss!css/font-awesome.min.css',
         'rcss!css/yun.css',
+        'rcss!css/treecontrol.css',
         'modules'
     ],
     noDebugs: []

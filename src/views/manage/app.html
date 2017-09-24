@@ -15,7 +15,7 @@
                     </li>
                     <li><a>|</a></li>
                     <li>
-                        <a href=""><i class="fa fa-bell fa-fw" aria-hidden="true"></i></a>
+                        <a href="" ng-click="messageService.toggle()"><i class="fa fa-bell fa-fw" aria-hidden="true"></i></a>
                     </li>
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i></a>
@@ -163,6 +163,26 @@
                 <div class="col-md-3">
                     <button class="btn btn-default appblock" style="width: 100%" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="yun-message-back" ng-click="messageService.toggle()"></div>
+    <div class="yun-message" ng-controller="modules.manage.controllers.messages">
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="navbar-left col-md-offset-5">
+                <div class="navbar-header">
+                    <span class="navbar-brand"><i class="glyphicon glyphicon-comment"></i></span>
+                </div>
+                <div class="navbar-header">
+                    <span class="navbar-brand"><strong>消息管理</strong></span>
+                </div>
+            </div>
+            <div class="navbar-right container-fluid">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="close" aria-label="Close" ng-click="messageService.toggle()"><span aria-hidden="true">&times;</span></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

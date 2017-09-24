@@ -96,6 +96,7 @@
         'rcss!css/metisMenu.min.css',
         'rcss!../bower_components/font-awesome/css/font-awesome.min.css',
         'rcss!css/yun.css',
+        'rcss!css/treecontrol.css',
         'modules'
     ],
     noDebugs: []

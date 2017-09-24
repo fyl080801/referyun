@@ -12,10 +12,6 @@ define([
                         scope.$emit('ngRepeated');
                     });
                 }
-
-                // if (scope.$last === true) {
-                //     eval(attr.ngRepeated);
-                // }
             };
 
             return {

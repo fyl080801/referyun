@@ -65,7 +65,27 @@ body {
     transition: all 0.2s ease 0s;
 }
 
-.yun-workbench-back {
+.yun-message {
+    background: white;
+    position: absolute;
+    z-index: 1037;
+    left: 0;
+    right: 0;
+    top: 40px;
+    height: 100%;
+    overflow: hidden;
+    border-color: #e7e7e7;
+    border-top-style: solid;
+    border-top-width: 1px;
+    -webkit-box-shadow: 15px 5px 0 rgba(0, 0, 0, .5);
+    box-shadow: 15px 5px 0 rgba(0, 0, 0, .5);
+    -webkit-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+}
+
+.yun-workbench-back,
+.yun-message-back {
     background-color: black;
     opacity: .5;
     position: fixed;
@@ -109,13 +129,20 @@ body {
     height: 86px;
 }
 
-.yun-app .yun-workbench {
+.yun-workbench-show .yun-workbench {
     left: -900px;
     -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
-.yun-app .yun-workbench-back {
+.yun-message-show .yun-message {
+    top: 100%;
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.yun-workbench-show .yun-workbench-back,
+.yun-message-show .yun-message-back {
     visibility: hidden;
 }
 
@@ -187,10 +214,11 @@ body {
     padding: 10px 20px 10px 25px;
 }
 
-.yun-nav .nav>li>a:focus,
+
+/* .yun-nav .nav>li>a:focus,
 .yun-nav .nav>li>a:hover {
     color: #fff;
-}
+} */
 
 .yun-nav .nav>li>a i {
     margin-right: 6px;

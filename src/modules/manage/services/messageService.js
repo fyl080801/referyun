@@ -3,10 +3,10 @@ define([
 ], function (module) {
     'use strict';
 
-    module.service('modules.manage.services.workbenchService', [
+    module.service('modules.manage.services.messageService', [
         function () {
             this.toggle = function () {
-                $('body').toggleClass('yun-workbench-show');
+                $('body').toggleClass('yun-message-show');
                 return false;
             };
         }

@@ -11,6 +11,7 @@ define([
                 actived: null, // 当前活动
                 groups: {}, // 分组
                 defaultApp: null,
+                messages: []
                 //
                 // customTypes: {
                 //     'form': {

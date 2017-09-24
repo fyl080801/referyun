@@ -7,8 +7,11 @@ define([
         '$scope',
         '$modal',
         'modules.manage.services.workbenchService',
-        function ($scope, $modal, workbenchService) {
+        'modules.manage.services.messageService',
+        function ($scope, $modal, workbenchService, messageService) {
             $scope.workbenchService = workbenchService;
+
+            $scope.messageService = messageService;
 
             $scope.menuType = 0; // 0菜单，1收藏
         }
