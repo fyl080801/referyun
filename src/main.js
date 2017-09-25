@@ -5,6 +5,7 @@
         config = {
             urlArgs: app.getAttribute('data-args'),
             paths: {
+                'patch': 'js/patch',
                 'rcss': 'js/app',
                 'angular': 'js/app',
                 'app': 'js/app',
@@ -59,10 +60,11 @@
 
     function initBrowserPatch(config) {
         if (document.getElementsByTagName('html')[0].getAttribute('data-html-type') === 'no-js lte-ie8') {
-            config.map = {
-                '*': {
-                    'patch': 'js/patch'
-                }
+            config.shim.app = {
+                deps: ['patch']
+            };
+            config.shim.rcss = {
+                deps: ['patch']
             };
         }
     }
@@ -76,7 +78,10 @@
             }
         },
         'api-check': {
-            path: '../bower_components/api-check/dist/api-check'
+            path: '../bower_components/api-check/dist/api-check',
+            shim: {
+                deps: ['app']
+            }
         },
         'ng-table': {
             path: 'js/ng-table',
