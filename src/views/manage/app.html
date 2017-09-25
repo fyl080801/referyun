@@ -91,7 +91,7 @@
                     <div class="panel appblock" ng-class="{ 'panel-default': !appinf.actived, 'panel-primary': appinf.actived }">
                         <div class="panel-heading"></div>
                         <div class="panel-body appbody">
-                            <a href="" role="button" ng-click="$state.go('app', { appid: appinf.appId });workbenchService.toggle()">
+                            <a href="" role="button" ng-click="$state.go('app.main', { appid: appinf.appId });workbenchService.toggle()">
                                 <p class="text-center">
                                     <span ng-class="{ 'text-muted': !appinf.actived, 'text-primary': appinf.actived }" style="font-size: 36pt">
                                         <i ng-class="{true: appinf.icon, false: 'glyphicon glyphicon-th-large'}[appinf.icon!==undefined && appinf.icon!=='']"></i>
