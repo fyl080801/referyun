@@ -5,15 +5,48 @@
         config = {
             urlArgs: app.getAttribute('data-args'),
             paths: {
-                'patch': 'js/patch',
-                'rcss': 'js/app',
-                'angular': 'js/app',
-                'app': 'js/app',
+                // 'patch': 'js/patch',
+                // 'rcss': 'js/app',
+                // 'angular': 'js/app',
+                // 'app': 'js/app',
+                // patch
+                'es5-shim': '../bower_components/es5-shim/es5-shim.min',
+                'es5-sham': '../bower_components/es5-shim/es5-sham.min',
+                'html5shiv': '../bower_components/html5shiv/dist/html5shiv.min',
+                'json2': '../bower_components/json2/json2',
+                'respond': '../bower_components/respond/dest/respond.min',
+                // app
+                'angular': '../bower_components/angular/angular',
+                'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
+                'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
+                'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap',
+                'jquery': '../bower_components/jquery/dist/jquery',
+                //
                 'app/application': 'js/app.application'
             },
+            map: {
+                '*': {
+                    'rcss': '../bower_components/require-css/css'
+                }
+            },
             shim: {
+                // 'app/application': {
+                //     deps: ['app']
+                // }
+                'respond': {
+                    deps: ['html5shiv']
+                },
                 'app/application': {
-                    deps: ['app']
+                    deps: ['angular', 'jquery', 'bootstrap', 'angular-ui-router', 'ui-bootstrap-tpls']
+                },
+                'ui-bootstrap-tpls': {
+                    deps: ['angular', 'bootstrap']
+                },
+                'angular-ui-router': {
+                    deps: ['angular']
+                },
+                'bootstrap': {
+                    deps: ['jquery']
                 }
             }
         };
@@ -80,19 +113,19 @@
         'api-check': {
             path: '../bower_components/api-check/dist/api-check',
             shim: {
-                deps: ['app']
+                deps: ['jquery']
             }
         },
         'ng-table': {
             path: 'js/ng-table',
             shim: {
-                deps: ['app']
+                deps: ['angular']
             }
         },
         'jquery-ui': {
             path: '../bower_components/jquery-ui/jquery-ui',
             shim: {
-                deps: ['app']
+                deps: ['jquery']
             }
         }
     },

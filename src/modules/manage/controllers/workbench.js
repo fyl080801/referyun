@@ -23,7 +23,7 @@ define([
                     nameEditing: false
                 });
 
-                $state.go('app', {
+                $state.go('app.main', {
                     appid: $yun.apps[$yun.apps.length - 1].appId
                 });
             };
@@ -40,7 +40,7 @@ define([
                             }
                         });
                         if ($yun.apps[0]) {
-                            $state.go('app', {
+                            $state.go('app.main', {
                                 appid: $yun.apps[0].appId
                             });
                         } else {

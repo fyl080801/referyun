@@ -35,6 +35,20 @@ define([
                     });
 
                 $stateProvider
+                    .state('app.main', {
+                        url: '/main',
+                        dependencies: ['modules/manage/requires'],
+                        views: {
+                            'header': {
+                                templateUrl: 'views/manage/appHeader.html'
+                            },
+                            'content': {
+                                templateUrl: 'views/manage/appContent.html'
+                            }
+                        }
+                    });
+
+                $stateProvider
                     .state('app.edit', {
                         url: '/edit',
                         dependencies: ['modules/manage/requires'],
@@ -43,7 +57,7 @@ define([
                                 templateUrl: 'views/manage/editHeader.html'
                             },
                             'content': {
-                                templateUrl: 'views/manage/edit.html'
+                                templateUrl: 'views/manage/editContent.html'
                             }
                         }
                     });

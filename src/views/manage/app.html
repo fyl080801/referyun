@@ -4,13 +4,13 @@
             <button class="btn btn-primary" ng-click="workbenchService.toggle()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
         </div>
         <div ui-view="header">
-            <span class="navbar-brand"><strong>{{$yun.actived.appName}}</strong></span>
+
         </div>
         <div class="navbar-right container-fluid">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="" ng-show="$state.current.name!=='app'" ng-click="$state.go('app', { appid: $stateParams.appid })"><i class="fa fa-reply fa-fw"></i> 返回应用</a>
-                    <a href="" ng-show="$state.current.name==='app'" ng-click="$state.go('app.edit', { appid: $stateParams.appid })"><i class="fa fa-cog fa-fw"></i> 管理应用</a>
+                    <a href="" ng-show="$state.current.name!=='app.main'" ng-click="$state.go('app.main', { appid: $stateParams.appid })"><i class="fa fa-reply fa-fw"></i> 返回应用</a>
+                    <a href="" ng-show="$state.current.name==='app.main'" ng-click="$state.go('app.edit', { appid: $stateParams.appid })"><i class="fa fa-cog fa-fw"></i> 管理应用</a>
                 </li>
                 <li><a>|</a></li>
                 <li>
@@ -29,35 +29,7 @@
         </div>
     </div>
     <div ui-view="content" class="yun-content">
-        <div class="yun-left">
-            <!--首页功能-->
-            <div class="navbar navbar-default navbar-static-top" style="margin: 0">
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav" style="width: 100%">
-                        <li class="text-center" ng-class="{ 'active': menuType===0 }" style="width: 50%"><a href="" ng-click="menuType=0"><i class="glyphicon glyphicon-th-list"></i> 应用菜单</a></li>
-                        <li class="text-center" ng-class="{ 'active': menuType===1 }" style="width: 50%"><a href="" ng-click="menuType=1"><i class="glyphicon glyphicon-heart"></i> 收藏夹</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!--菜单栏-->
-            <div class="yun-nav">
-                <!-- <div ng-show="menuType===0" class="metismenu nav" groups="$yun.groups[$yun.actived.appId]" mode="view"></div> -->
-                <div tree-view ng-show="menuType===0" tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
-            </div>
-        </div>
-        <div class="yun-right">
-            <div class="navbar navbar-blank navbar-static-top" style="margin: 0">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href=""><i class="glyphicon glyphicon-home"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!--主内容-->
-            <div style="margin-top: 50px">
 
-            </div>
-        </div>
     </div>
     <div class="yun-workbench-back" ng-click="workbenchService.toggle()"></div>
     <div class="yun-workbench" ng-controller="modules.manage.controllers.workbench">
