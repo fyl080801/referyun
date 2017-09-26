@@ -220,6 +220,23 @@ body {
     font-size: 18px;
 }
 
+.yun-pagenav .nav>li.active {
+    border-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #0DB3A6;
+    font-weight: bold;
+}
+
+.yun-pagenav .nav>li>a,
+.yun-pagenav .nav>li>a:hover {
+    background-color: transparent;
+}
+
+.yun-pagenav .nav>li>a {
+    line-height: 14px;
+    height: 44px;
+}
+
 
 /* 导航*/
 

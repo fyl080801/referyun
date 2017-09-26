@@ -4,10 +4,10 @@
     </div>
     <div class="navbar navbar-inverse navbar-fixed-top yun-headnav" style="width: 250px;">
         <ul class="nav navbar-nav" style="width: 100%">
-            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.user' }" style="width: 50%">
-                <a href="" ng-click="$state.go('app.user', { appid: $stateParams.appid })"><i class="glyphicon glyphicon-user"></i> 用户</a>
+            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name.indexOf('app.user')===0 }" style="width: 50%">
+                <a href="" ng-click="$state.go('app.user.org', { appid: $stateParams.appid })"><i class="glyphicon glyphicon-user"></i> 用户</a>
             </li>
-            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.admin' }" style="width: 50%">
+            <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name.indexOf('app.admin')===0 }" style="width: 50%">
                 <a href="" ng-click="$state.go('app.admin', { appid: $stateParams.appid })"><i class="glyphicon glyphicon-education"></i> 管理员</a>
             </li>
         </ul>
