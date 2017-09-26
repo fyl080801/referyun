@@ -45,7 +45,8 @@ gulp.task('pack_resources', function () {
             '!src/app',
             '!src/index.html',
             '!src/reference.json',
-            '!src/build.js',
+            '!src/modules.build.js',
+            '!src/requires.build.js',
             '!src/main.js',
             '!src/modules.js'
         ])
@@ -76,13 +77,11 @@ gulp.task('pack_modules', function () {
 
     for (var idx in modules) {
         var requiresPath = 'modules/' + modules[idx] + '/requires';
-        var referencePath = 'modules/' + modules[idx] + '/module';
         var requiresName = 'modules.' + modules[idx];
 
         gulp.src('src/**/*.js')
             .pipe(amdOptimize(requiresPath, {
-                exclude: [referencePath, 'metisMenu'],
-                configFile: 'src/build.js',
+                configFile: 'src/requires.build.js',
                 baseUrl: 'src'
             }))
             .pipe(concat(requiresName + '.js'))
@@ -96,8 +95,7 @@ gulp.task('pack_modules', function () {
 
     gulp.src('src/**/*.js')
         .pipe(amdOptimize('modules', {
-            exclude: ['app/application'],
-            configFile: 'src/build.js',
+            configFile: 'src/modules.build.js',
             baseUrl: 'src'
         }))
         .pipe(concat('modules.js'))
