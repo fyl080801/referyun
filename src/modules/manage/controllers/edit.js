@@ -1,6 +1,5 @@
 define([
-    'modules/manage/module',
-    'metisMenu'
+    'modules/manage/module'
 ], function (module) {
     'use strict';
 
