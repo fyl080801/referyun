@@ -44,28 +44,14 @@ define([
                     .state('app.user.org', {
                         url: '/org',
                         dependencies: ['modules/member/requires'],
-                        views: {
-                            'memberTree': {
-                                templateUrl: 'views/member/orgTree.html'
-                            },
-                            'memberContent': {
-                                templateUrl: 'views/member/orgContent.html'
-                            }
-                        }
+                        templateUrl: 'views/member/orgContent.html'
                     });
 
                 $stateProvider
                     .state('app.user.role', {
                         url: '/role',
                         dependencies: ['modules/member/requires'],
-                        views: {
-                            'memberTree': {
-                                templateUrl: 'views/member/roleList.html'
-                            },
-                            'memberContent': {
-                                templateUrl: 'views/member/roleContent.html'
-                            }
-                        }
+                        templateUrl: 'views/member/roleContent.html'
                     });
             }
         ]);

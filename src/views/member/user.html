@@ -11,11 +11,14 @@
                     </li>
                 </ul>
             </div>
-            <div ui-view="memberTree">
-
+            <div ng-show="$state.current.name==='app.user.org'">
+                ot
+            </div>
+            <div ng-show="$state.current.name==='app.user.role'">
+                rl
             </div>
         </div>
-        <div class="yun-member-right" ui-view="memberContent">
+        <div class="yun-member-right" ui-view>
 
         </div>
     </div>
