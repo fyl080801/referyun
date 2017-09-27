@@ -2,6 +2,7 @@ require.config({
     removeCombined: true,
     fileExclusionRegExp: /^\./,
     paths: {
+        'ng-table': '../bower_components/ng-table/dist/ng-table.min',
         'metisMenu': 'js/metisMenu.min',
         'angular': '../bower_components/angular/angular.min',
         'jquery': '../bower_components/jquery/dist/jquery.min',

@@ -1,6 +1,7 @@
 define([
     'app/application',
     'modules/manage/configs/yun',
+    'modules/manage/configs/yunEnums',
     'modules/manage/configs/rootScope',
     'modules/manage/configs/state'
 ], function (application) {

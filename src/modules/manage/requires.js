@@ -10,7 +10,8 @@ define([
     'modules/manage/controllers/workbench',
     'modules/manage/controllers/welcome',
     'modules/manage/controllers/icons',
-    'modules/manage/controllers/messages'
+    'modules/manage/controllers/messages',
+    'modules/manage/controllers/formLayout'
 ], function () {
     'use strict';
 
