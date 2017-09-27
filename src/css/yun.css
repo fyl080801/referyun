@@ -42,6 +42,35 @@ body {
     right: 0;
 }
 
+.yun-content .yun-col-left {
+    position: absolute;
+    width: 249px;
+    border-right: solid 1px #e0e0e0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.yun-content .yun-col-middle {
+    position: absolute;
+    left: 250px;
+    right: 300px;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.yun-content .yun-col-right {
+    position: absolute;
+    width: 299px;
+    border-left: solid 1px #e0e0e0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
 .yun-addbtn {
     width: 220px;
     padding: 15px;
@@ -234,7 +263,7 @@ body {
 
 .yun-pagenav .nav>li>a {
     line-height: 14px;
-    height: 44px;
+    height: 45px;
 }
 
 
@@ -314,7 +343,7 @@ body {
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: #fafcfe;
     border: 1px solid #e7eaf1;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .05);
 }
@@ -322,10 +351,15 @@ body {
 .yun-member .yun-member-function .yun-member-left {
     position: absolute;
     width: 250px;
-    background-color: #fafcfe;
 }
 
 .yun-member .yun-member-function .yun-member-right {
     position: relative;
     margin-left: 251px;
+    background-color: white;
+    height: 600px;
+}
+
+.yun-formlayout {
+    
 }

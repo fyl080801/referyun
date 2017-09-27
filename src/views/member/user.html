@@ -1,25 +1,46 @@
-<div class="yun-member" ng-controller="modules.member.controllers.user">
+<div class="yun-member" ng-controller="modules.member.controllers.user as me">
     <div class="yun-member-function">
         <div class="yun-member-left">
             <div class="navbar navbar-blank navbar-static-top yun-pagenav">
                 <ul class="nav navbar-nav" style="width: 100%">
-                    <li ng-class="{ 'active': $state.current.name==='app.user.org' }" style="width: 50%">
-                        <a href="" class="text-center" ng-click="$state.go('app.user.org', { appid: $stateParams.appid })">组织机构</a>
+                    <li ng-class="{ 'active': me.view===0 }" style="width: 50%">
+                        <a href="" class="text-center" ng-click="me.view=0">组织机构</a>
                     </li>
-                    <li ng-class="{ 'active': $state.current.name==='app.user.role' }" style="width: 50%">
-                        <a href="" class="text-center" ng-click="$state.go('app.user.role', { appid: $stateParams.appid })">角色</a>
+                    <li ng-class="{ 'active': me.view===1 }" style="width: 50%">
+                        <a href="" class="text-center" ng-click="me.view=1">角色</a>
                     </li>
                 </ul>
             </div>
-            <div ng-show="$state.current.name==='app.user.org'">
-                ot
-            </div>
-            <div ng-show="$state.current.name==='app.user.role'">
-                rl
-            </div>
+            <div ng-show="me.view===0"></div>
+            <div ng-show="me.view===1"></div>
         </div>
-        <div class="yun-member-right" ui-view>
-
+        <!---->
+        <div class="yun-member-right" ng-show="me.view===0" ng-controller="modules.member.controllers.org">
+            <div class="navbar navbar-blank navbar-static-top" style="margin: 0">
+                <div class="container-fluid">
+                    <button class="btn btn-primary navbar-btn">添加</button>
+                    <button class="btn btn-default navbar-btn">调整部门</button>
+                    <button class="btn btn-default navbar-btn">删除</button>
+                </div>
+            </div>
+            <table ng-table="tableParams" class="table table-striped">
+                <tr ng-repeat="row in list">
+                    <td><input type="checkbox"></td>
+                    <td title="'姓名'">{{row.UserName}}</td>
+                    <td title="'手机'">{{row.Mobile}}</td>
+                    <td title="'邮箱'">{{row.Email}}</td>
+                </tr>
+            </table>
+        </div>
+        <!---->
+        <div class="yun-member-right" ng-show="me.view===1">
+            <div class="navbar navbar-blank navbar-static-top">
+                <div class="container-fluid">
+                    <button class="btn btn-primary navbar-btn">添加</button>
+                    <button class="btn btn-default navbar-btn">批量移除</button>
+                </div>
+            </div>
+            <div>sss</div>
         </div>
     </div>
 </div>

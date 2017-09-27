@@ -6,7 +6,7 @@ define([
     module.controller('modules.member.controllers.user', [
         '$scope',
         function ($scope) {
-
+            this.view = 0;
         }
     ]);
 });

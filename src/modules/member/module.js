@@ -1,5 +1,6 @@
 define([
-    'app/application'
+    'app/application',
+    'ng-table'
 ], function (application) {
     'use strict';
 
@@ -7,14 +8,15 @@ define([
 
     return angular
         .module('modules.member', [
-            'ui.router'
+            'ui.router',
+            'ngTable'
         ])
         .config([
             '$stateProvider',
             function ($stateProvider) {
                 $stateProvider
                     .state('app.user', {
-                        url: '/user',
+                        url: '/user/{companyid}',
                         dependencies: ['modules/member/requires'],
                         views: {
                             'header': {
@@ -28,7 +30,7 @@ define([
 
                 $stateProvider
                     .state('app.admin', {
-                        url: '/admin',
+                        url: '/admin/{companyid}',
                         dependencies: ['modules/member/requires'],
                         views: {
                             'header': {
@@ -38,20 +40,6 @@ define([
                                 templateUrl: 'views/member/admin.html'
                             }
                         }
-                    });
-
-                $stateProvider
-                    .state('app.user.org', {
-                        url: '/org',
-                        dependencies: ['modules/member/requires'],
-                        templateUrl: 'views/member/orgContent.html'
-                    });
-
-                $stateProvider
-                    .state('app.user.role', {
-                        url: '/role',
-                        dependencies: ['modules/member/requires'],
-                        templateUrl: 'views/member/roleContent.html'
                     });
             }
         ]);
