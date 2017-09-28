@@ -7,6 +7,7 @@ define([
         '$provide',
         function ($provide) {
             $provide.constant('$yunEnums', {
+                // 隐藏值更新模式
                 HiddenValueModes: [{
                     key: 'keepValue',
                     value: '保持原值',
@@ -20,6 +21,8 @@ define([
                     value: '始终重新计算',
                     remark: '控件的计算、提交逻辑，与没有隐藏时保持一致'
                 }],
+
+                // 表单列数
                 FormLayouts: [{
                     key: 1,
                     value: '单列'
