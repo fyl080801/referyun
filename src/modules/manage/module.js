@@ -79,21 +79,21 @@ define([
 
                 $stateProvider
                     .state('app.editform.layout', {
-                        url: '/layout',
+                        url: '/edit',
                         dependencies: ['modules/manage/requires'],
                         templateUrl: 'views/manage/formLayout.html'
                     });
 
                 $stateProvider
                     .state('app.editform.data', {
-                        url: '/layout',
+                        url: '/edit',
                         dependencies: ['modules/manage/requires'],
                         templateUrl: 'views/manage/formData.html'
                     });
 
                 $stateProvider
                     .state('app.editform.setting', {
-                        url: '/layout',
+                        url: '/edit',
                         dependencies: ['modules/manage/requires'],
                         templateUrl: 'views/manage/formSetting.html'
                     });

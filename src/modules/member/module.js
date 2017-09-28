@@ -16,7 +16,7 @@ define([
             function ($stateProvider) {
                 $stateProvider
                     .state('app.user', {
-                        url: '/user/{companyid}',
+                        url: '/member/{companyid}',
                         dependencies: ['modules/member/requires'],
                         views: {
                             'header': {
@@ -30,7 +30,7 @@ define([
 
                 $stateProvider
                     .state('app.admin', {
-                        url: '/admin/{companyid}',
+                        url: '/member/{companyid}',
                         dependencies: ['modules/member/requires'],
                         views: {
                             'header': {

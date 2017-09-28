@@ -11,7 +11,8 @@ define([
     'modules/manage/controllers/welcome',
     'modules/manage/controllers/icons',
     'modules/manage/controllers/messages',
-    'modules/manage/controllers/formLayout'
+    'modules/manage/controllers/formLayout',
+    'modules/manage/controllers/formData'
 ], function () {
     'use strict';
 
