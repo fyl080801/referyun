@@ -3,5 +3,4 @@ define([
     'modules/member/module'
 ], function () {
     'use strict';
-
 });

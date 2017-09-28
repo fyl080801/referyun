@@ -3,13 +3,12 @@
 
     var requires = ['app/application'],
         config = {
-            urlArgs: app.getAttribute('data-args'),
+            urlArgs: options.app.getAttribute('data-args'),
             paths: {
                 'patch': 'js/patch',
                 'rcss': 'js/app',
                 'angular': 'js/app',
                 'app': 'js/app',
-                //
                 'app/application': 'js/app.application'
             },
             shim: {
