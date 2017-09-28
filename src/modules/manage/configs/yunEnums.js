@@ -19,6 +19,13 @@ define([
                     key: 'reCalculate',
                     value: '始终重新计算',
                     remark: '控件的计算、提交逻辑，与没有隐藏时保持一致'
+                }],
+                FormLayouts: [{
+                    key: 1,
+                    value: '单列'
+                }, {
+                    key: 2,
+                    value: '双列'
                 }]
             });
         }

@@ -1,4 +1,4 @@
-<div class="yun-content-full" ng-controller="modules.manage.controllers.formLayout">
+<div class="yun-content-full" ng-controller="modules.manage.controllers.formLayout as formLayout">
     <div class="yun-col-left">
     </div>
     <div class="yun-col-middle">
@@ -31,13 +31,13 @@
 
             </div>
             <div role="tabpanel" class="tab-pane" id="settings_form">
-                <form class="container-fluid" role="form">
+                <div class="container-fluid">
                     <div class="form-group">
                         <div>
                             <label>表单提交校验</label>
                         </div>
                         <div>
-                            <button class="btn btn-default btn-block">添加校验条件</button>
+                            <button class="btn btn-default btn-block" type="button">添加校验条件</button>
                         </div>
                     </div>
                     <hr />
@@ -74,7 +74,7 @@
                             <button class="btn btn-primary" ng-class="{ 'active': !formProperty.Cached }" ng-click="formProperty.Cached=false">禁用</button>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
