@@ -96,8 +96,8 @@ gulp.task('pack_modules', function () {
             .pipe(gulp.dest(jsTarget));
     }
 
-    for (var idx in builds) {
-        var buildFile = builds[idx];
+    for (var bidx in builds) {
+        var buildFile = builds[bidx];
         var buildName = buildFile.replace('.build.js', '');
 
         gulp.src('src/**/*.js')

@@ -16,6 +16,8 @@ require.config({
         'metisMenu',
         'app/application',
         'modules/manage/module',
-        'modules/member/module'
+        'modules/member/module',
+        'modules/yun/module',
+        'modules/localstore/module'
     ]
 });
