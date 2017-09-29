@@ -5,11 +5,11 @@ define([
 
     module.controller('modules.manage.controllers.editHeader', [
         '$scope',
-        'modules.manage.services.workbenchService',
-        function ($scope, workbenchService) {
+        'modules.yun.services.appService',
+        function ($scope, appService) {
             $scope.titleEditing = false;
 
-            $scope.workbenchService = workbenchService;
+            $scope.appService = appService;
 
             $scope.changeTitle = function () {
                 $scope.titleEditing = false;

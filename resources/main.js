@@ -95,16 +95,22 @@
         },
 
         // requires
+        'modules/yun/requires': {
+            path: 'js/modules.yun',
+            shim: {
+                deps: ['modules']
+            }
+        },
         'modules/manage/requires': {
             path: 'js/modules.manage',
             shim: {
-                deps: ['modules']
+                deps: ['modules', 'modules/yun/requires']
             }
         },
         'modules/member/requires': {
             path: 'js/modules.member',
             shim: {
-                deps: ['modules', 'modules/manage/requires']
+                deps: ['modules', 'modules/yun/requires']
             }
         },
 
@@ -132,8 +138,8 @@
         }
     },
     requires: [
-        'rcss!css/metisMenu.min.css',
         'rcss!css/font-awesome.min.css',
+        'rcss!css/metisMenu.min.css',
         'rcss!css/yun.css',
         'modules'
     ],

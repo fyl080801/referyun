@@ -1,7 +1,7 @@
-<div ng-controller="modules.manage.controllers.app">
+<div ng-controller="modules.yun.controllers.app">
     <div class="navbar navbar-inverse navbar-fixed-top" style="margin: 0">
         <div class="navbar-header navbar-form">
-            <button class="btn btn-primary" ng-click="workbenchService.toggle()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+            <button class="btn btn-primary" ng-click="appService.toggleWorkbench()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
         </div>
         <div ui-view="header">
 
@@ -31,8 +31,8 @@
     <div ui-view="content" class="yun-content">
 
     </div>
-    <div class="yun-workbench-back" ng-click="workbenchService.toggle()"></div>
-    <div class="yun-workbench" ng-controller="modules.manage.controllers.workbench">
+    <div class="yun-workbench-back" ng-click="appService.toggleWorkbench()"></div>
+    <div class="yun-workbench" ng-controller="modules.yun.controllers.workbench">
         <div class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
                 <span class="navbar-brand"><i class="glyphicon glyphicon-briefcase"></i></span>
@@ -43,7 +43,7 @@
             <div class="navbar-right container-fluid">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="close" aria-label="Close" ng-click="workbenchService.toggle()"><span aria-hidden="true">&times;</span></a>
+                        <a class="close" aria-label="Close" ng-click="appService.toggleWorkbench()"><span aria-hidden="true">&times;</span></a>
                     </li>
                 </ul>
             </div>
@@ -91,7 +91,7 @@
                     <div class="panel appblock" ng-class="{ 'panel-default': !appinf.actived, 'panel-primary': appinf.actived }">
                         <div class="panel-heading"></div>
                         <div class="panel-body appbody">
-                            <a href="" role="button" ng-click="$state.go('app.main', { appid: appinf.appId });workbenchService.toggle()">
+                            <a href="" role="button" ng-click="$state.go('app.main', { appid: appinf.appId });appService.toggleWorkbench()">
                                 <p class="text-center">
                                     <span ng-class="{ 'text-muted': !appinf.actived, 'text-primary': appinf.actived }" style="font-size: 36pt">
                                         <i ng-class="{true: appinf.icon, false: 'glyphicon glyphicon-th-large'}[appinf.icon!==undefined && appinf.icon!=='']"></i>
@@ -100,7 +100,7 @@
                             </a>
                         </div>
                         <div class="panel-footer clearfix">
-                            <a href="" ng-click="$state.go('app.edit', { appid: appinf.appId });workbenchService.toggle()"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
+                            <a href="" ng-click="$state.go('app.edit', { appid: appinf.appId });appService.toggleWorkbench()"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
                             <div class="pull-right dropdown">
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -137,8 +137,8 @@
             </div>
         </div>
     </div>
-    <div class="yun-message-back" ng-click="messageService.toggle()"></div>
-    <div class="yun-message" ng-controller="modules.manage.controllers.messages">
+    <div class="yun-message-back" ng-click="appService.toggleMessage()"></div>
+    <div class="yun-message" ng-controller="modules.yun.controllers.messages">
         <div class="navbar navbar-default navbar-static-top">
             <div class="navbar-left col-md-offset-5">
                 <div class="navbar-header">
@@ -151,7 +151,7 @@
             <div class="navbar-right container-fluid">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="close" aria-label="Close" ng-click="messageService.toggle()"><span aria-hidden="true">&times;</span></a>
+                        <a class="close" aria-label="Close" ng-click="appService.toggleMessage()"><span aria-hidden="true">&times;</span></a>
                     </li>
                 </ul>
             </div>

@@ -1,9 +1,9 @@
 define([
-    'modules/manage/module'
+    'modules/yun/module'
 ], function (module) {
     'use strict';
 
-    module.controller('modules.manage.controllers.messages', [
+    module.controller('modules.yun.controllers.messages', [
         '$scope',
         function ($scope) {
 

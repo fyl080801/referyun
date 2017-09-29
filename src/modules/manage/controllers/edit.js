@@ -9,7 +9,7 @@ define([
         '$stateParams',
         '$modal',
         '$yun',
-        'modules.manage.services.utility',
+        'modules.yun.services.utility',
         function ($scope, $state, $stateParams, $modal, $yun, utility) {
             function relsoveGroup(yun) {
                 yun.groups[yun.actived.appId] = yun.groups[yun.actived.appId] ? yun.groups[yun.actived.appId] : [];

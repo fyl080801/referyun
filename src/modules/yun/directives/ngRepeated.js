@@ -1,5 +1,5 @@
 define([
-    'modules/manage/module'
+    'modules/yun/module'
 ], function (module) {
     'use strict';
 

@@ -1,18 +1,18 @@
 define([
-    'modules/manage/module'
+    'modules/yun/module'
 ], function (module) {
     'use strict';
 
-    module.controller('modules.manage.controllers.workbench', [
+    module.controller('modules.yun.controllers.workbench', [
         '$scope',
         '$state',
         '$modal',
         '$yun',
         'app.services.popupService',
-        'modules.manage.services.utility',
-        'modules.manage.services.workbenchService',
-        function ($scope, $state, $modal, $yun, popupService, utility, workbenchService) {
-            $scope.workbenchService = workbenchService;
+        'modules.yun.services.utility',
+        'modules.yun.services.appService',
+        function ($scope, $state, $modal, $yun, popupService, utility, appService) {
+            $scope.appService = appService;
 
             $scope.addApp = function () {
                 $yun.apps.push({
