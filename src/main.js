@@ -100,7 +100,7 @@
         'rcss!../bower_components/font-awesome/css/font-awesome.min.css',
         'rcss!css/metisMenu.min.css',
         'rcss!css/yun.css',
-        'modules'
+        'localyun.modules'
     ],
     noDebugs: []
 });

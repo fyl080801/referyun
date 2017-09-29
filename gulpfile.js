@@ -42,13 +42,12 @@ gulp.task('pack_resources', function () {
             'resources/**/*',
             'src/**/*',
             '!src/modules/**/*',
+            '!src/*.build.js',
+            '!src/*.modules.js',
             '!src/app',
             '!src/index.html',
             '!src/reference.json',
-            '!src/modules.build.js',
-            '!src/requires.build.js',
-            '!src/main.js',
-            '!src/modules.js'
+            '!src/main.js'
         ])
         .pipe(gulp.dest('dist'));
 
@@ -74,6 +73,10 @@ gulp.task('pack_resources', function () {
  */
 gulp.task('pack_modules', function () {
     var modules = fs.readdirSync('src/modules');
+    var builds = fs.readdirSync('src')
+        .filter(function (file) {
+            return file.endsWith('.build.js') && !file.startsWith('requires.');
+        });
 
     for (var idx in modules) {
         var requiresPath = 'modules/' + modules[idx] + '/requires';
@@ -93,18 +96,23 @@ gulp.task('pack_modules', function () {
             .pipe(gulp.dest(jsTarget));
     }
 
-    gulp.src('src/**/*.js')
-        .pipe(amdOptimize('modules', {
-            configFile: 'src/modules.build.js',
-            baseUrl: 'src'
-        }))
-        .pipe(concat('modules.js'))
-        .pipe(gulp.dest(jsTarget))
-        .pipe(concat('modules.min.js'))
-        .pipe(uglify({
-            outSourceMap: false
-        }))
-        .pipe(gulp.dest(jsTarget));
+    for (var idx in builds) {
+        var buildFile = builds[idx];
+        var buildName = buildFile.replace('.build.js', '');
+
+        gulp.src('src/**/*.js')
+            .pipe(amdOptimize(buildName + '.modules', {
+                configFile: 'src/' + buildFile,
+                baseUrl: 'src'
+            }))
+            .pipe(concat(buildName + '.modules.js'))
+            .pipe(gulp.dest(jsTarget))
+            .pipe(concat(buildName + '.modules.min.js'))
+            .pipe(uglify({
+                outSourceMap: false
+            }))
+            .pipe(gulp.dest(jsTarget));
+    }
 });
 
 /**

@@ -3,7 +3,8 @@ define([
     'modules/yun/configs/yun',
     'modules/yun/configs/yunEnums',
     'modules/yun/configs/rootScope',
-    'modules/yun/configs/state'
+    'modules/yun/configs/state',
+    'modules/yun/configs/storeAdapter'
 ], function (application) {
     'use strict';
 

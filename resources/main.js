@@ -87,8 +87,8 @@
     app: document.getElementById('app'),
     references: {
         // modules
-        'modules': {
-            path: 'js/modules',
+        'localyun': {
+            path: 'js/localyun.modules',
             shim: {
                 deps: ['app/application']
             }
@@ -98,19 +98,19 @@
         'modules/yun/requires': {
             path: 'js/modules.yun',
             shim: {
-                deps: ['modules']
+                deps: ['localyun']
             }
         },
         'modules/manage/requires': {
             path: 'js/modules.manage',
             shim: {
-                deps: ['modules', 'modules/yun/requires']
+                deps: ['localyun', 'modules/yun/requires']
             }
         },
         'modules/member/requires': {
             path: 'js/modules.member',
             shim: {
-                deps: ['modules', 'modules/yun/requires']
+                deps: ['localyun', 'modules/yun/requires']
             }
         },
 
@@ -141,7 +141,7 @@
         'rcss!css/font-awesome.min.css',
         'rcss!css/metisMenu.min.css',
         'rcss!css/yun.css',
-        'modules'
+        'localyun'
     ],
     noDebugs: []
 });

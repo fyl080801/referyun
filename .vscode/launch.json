@@ -3,6 +3,14 @@
     "configurations": [{
         "type": "node",
         "request": "launch",
+        "name": "Gulp pack_modules",
+        "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+        "args": [
+            "pack_modules"
+        ]
+    }, {
+        "type": "node",
+        "request": "launch",
         "name": "Launch Program",
         "program": "${workspaceRoot}\\gulpfile.js"
     }]
