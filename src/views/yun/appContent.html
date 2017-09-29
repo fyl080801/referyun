@@ -2,15 +2,24 @@
     <!--首页功能-->
     <div class="navbar navbar-default navbar-static-top" style="margin: 0">
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav" style="width: 100%">
-                <li class="text-center" ng-class="{ 'active': menuType===0 }" style="width: 50%"><a href="" ng-click="menuType=0"><i class="glyphicon glyphicon-th-list"></i> 应用菜单</a></li>
-                <li class="text-center" ng-class="{ 'active': menuType===1 }" style="width: 50%"><a href="" ng-click="menuType=1"><i class="glyphicon glyphicon-heart"></i> 收藏夹</a></li>
+            <ul class="nav navbar-nav" role="tablist" style="width: 100%">
+                <li class="text-center active" style="width: 50%">
+                    <a href="#app_menu" aria-controls="app_menu" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-th-list"></i> 应用菜单</a>
+                </li>
+                <li class="text-center" style="width: 50%">
+                    <a href="#app_favorites" aria-controls="app_favorites" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-heart"></i> 收藏夹</a>
+                </li>
             </ul>
         </div>
     </div>
     <!--菜单栏-->
-    <div class="yun-nav">
-        <div tree-view ng-show="menuType===0" tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
+    <div class="tab-content yun-nav">
+        <div role="tabpanel" class="tab-pane active" id="app_menu">
+            <div tree-view tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="app_favorites">
+            收藏
+        </div>
     </div>
 </div>
 <div class="yun-right">
