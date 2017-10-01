@@ -11,10 +11,22 @@ define([
         'app.services.popupService',
         'modules.yun.services.utility',
         'modules.yun.services.appService',
-        function ($scope, $state, $modal, $yun, popupService, utility, appService) {
+        'modules.yun.services.store',
+        function ($scope, $state, $modal, $yun, popupService, utility, appService, store) {
             $scope.appService = appService;
 
+            // app
             $scope.addApp = function () {
+                // store.post({
+                //         AppName: '未命名应用'
+                //     })
+                //     .append('app')
+                //     .then(function (result) {
+                //         $state.go('app.main', {
+                //             appid: result.Id
+                //         });
+                //     });
+
                 $yun.apps.push({
                     appId: utility.uid(),
                     appName: '未命名应用',

@@ -7,7 +7,7 @@ define([
         function () {
             this.$get = [function () {
                 return {
-                    get: function (apiDefer, data) {
+                    get: function (apiDefer) {
                         throw '未实现该方法';
                     },
                     post: function (apiDefer, data) {
@@ -19,7 +19,7 @@ define([
                     patch: function (apiDefer, data) {
                         throw '未实现该方法';
                     },
-                    del: function (apiDefer, data) {
+                    del: function (apiDefer) {
                         throw '未实现该方法';
                     }
                 };

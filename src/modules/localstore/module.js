@@ -1,8 +1,10 @@
 define([
     'app/application',
+    'modules/yun/module',
     'modules/localstore/configs/storeAdapter',
     'modules/localstore/configs/dataStore',
-    'modules/yun/module'
+    //
+    'modules/localstore/providers/app'
 ], function (application) {
     'use strict';
 
@@ -11,6 +13,7 @@ define([
     return angular
         .module('modules.localstore', [
             'modules.yun',
-            'modules.localstore.configs'
+            'modules.localstore.configs',
+            'modules.localstore.providers'
         ]);
 });

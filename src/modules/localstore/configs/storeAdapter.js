@@ -3,38 +3,43 @@ define([
 ], function (configs) {
     'use strict';
 
+    /**
+     * 
+     * @param {*}  modules.yun.configs.storeAdapter
+     * @param {*}  
+     */
     function decorator($delegate, $timeout) {
-        $delegate.get = function (apiDefer, data) {
+        $delegate.get = function (apiDefer) {
             $timeout(function () {
-                apiDefer.resolve({});
+                apiDefer.resolve(null);
             });
             return apiDefer.promise;
         };
 
         $delegate.post = function (apiDefer, data) {
             $timeout(function () {
-                apiDefer.resolve({});
+                apiDefer.resolve(null);
             });
             return apiDefer.promise;
         };
 
         $delegate.put = function (apiDefer, data) {
             $timeout(function () {
-                apiDefer.resolve({});
+                apiDefer.resolve(null);
             });
             return apiDefer.promise;
         };
 
         $delegate.patch = function (apiDefer, data) {
             $timeout(function () {
-                apiDefer.resolve({});
+                apiDefer.resolve(null);
             });
             return apiDefer.promise;
         };
 
-        $delegate.del = function (apiDefer, data) {
+        $delegate.del = function (apiDefer) {
             $timeout(function () {
-                apiDefer.resolve({});
+                apiDefer.resolve(null);
             });
             return apiDefer.promise;
         };

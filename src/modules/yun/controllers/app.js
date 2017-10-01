@@ -5,12 +5,25 @@ define([
 
     module.controller('modules.yun.controllers.app', [
         '$scope',
+        '$state',
+        '$stateParams',
         '$modal',
+        '$yun',
         'modules.yun.services.appService',
-        function ($scope, $modal, appService) {
+        'modules.yun.services.store',
+        function ($scope, $state, $stateParams, $modal, $yun, appService, store) {
             $scope.appService = appService;
 
-            //$scope.menuType = 0; // 0菜单，1收藏
+            // app/{id}
+            // store.get()
+            //     .append('app').append($stateParams.appid)
+            //     .then(function (result) {
+            //         if (result == null) {
+            //             $state.go('welcome');
+            //         } else {
+            //             $yun.actived = result;
+            //         }
+            //     });
         }
     ]);
 });

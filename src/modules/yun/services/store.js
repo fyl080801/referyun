@@ -3,25 +3,30 @@ define([
 ], function (module) {
     'use strict';
 
-    module.service('modules.yun.service.store', [
+    module.service('modules.yun.services.store', [
         '$q',
-        'modules.yun.services.storeAdapter',
+        'modules.yun.configs.storeAdapter',
         function ($q, storeAdapter) {
 
             function deffered(q) {
                 var defer = q.defer();
-                defer.api = [];
-                defer.promise.append = function (key, value) {
-                    defer.api.push({
-                        key: key,
-                        value: value
+                defer.apis = [];
+                defer.queries = [];
+                defer.promise.append = function (path) {
+                    defer.apis.push(path);
+                    return defer.promise;
+                };
+                defer.promise.query = function (k, v) {
+                    defer.queries.push({
+                        key: k,
+                        value: v
                     });
                     return defer.promise;
-                }
+                };
                 return defer;
             }
 
-            this.get = function (data) {
+            this.get = function () {
                 var defer = deffered($q);
                 storeAdapter.get(defer);
                 return defer.promise;
@@ -29,23 +34,23 @@ define([
 
             this.post = function (data) {
                 var defer = deffered($q);
-                storeAdapter.post(defer);
+                storeAdapter.post(defer, data);
                 return defer.promise;
             };
 
             this.put = function (data) {
                 var defer = deffered($q);
-                storeAdapter.put(defer);
+                storeAdapter.put(defer, data);
                 return defer.promise;
             };
 
             this.patch = function (data) {
                 var defer = deffered($q);
-                storeAdapter.patch(defer);
+                storeAdapter.patch(defer, data);
                 return defer.promise;
             };
 
-            this.del = function (data) {
+            this.del = function () {
                 var defer = deffered($q);
                 storeAdapter.del(defer);
                 return defer.promise;
