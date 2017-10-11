@@ -19,7 +19,7 @@ define([
                     patch: function (apiDefer, data) {
                         throw '未实现该方法';
                     },
-                    del: function (apiDefer) {
+                    drop: function (apiDefer) {
                         throw '未实现该方法';
                     }
                 };

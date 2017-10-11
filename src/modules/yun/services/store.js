@@ -50,9 +50,9 @@ define([
                 return defer.promise;
             };
 
-            this.del = function () {
+            this.drop = function () {
                 var defer = deffered($q);
-                storeAdapter.del(defer);
+                storeAdapter.drop(defer);
                 return defer.promise;
             };
         }

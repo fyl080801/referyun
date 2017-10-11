@@ -3,5 +3,5 @@ define([
 ], function (application) {
     'use strict';
 
-    return angular.module('modules.localstore.configs', []);
+    return angular.module('modules.localstore.services', []);
 });

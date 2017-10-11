@@ -15,15 +15,15 @@ define([
             $scope.appService = appService;
 
             // app/{id}
-            // store.get()
-            //     .append('app').append($stateParams.appid)
-            //     .then(function (result) {
-            //         if (result == null) {
-            //             $state.go('welcome');
-            //         } else {
-            //             $yun.actived = result;
-            //         }
-            //     });
+            store.get()
+                .append('app').append($stateParams.appid)
+                .then(function (result) {
+                    if (result == null) {
+                        $state.go('welcome');
+                    } else {
+                        $yun.actived = result;
+                    }
+                });
         }
     ]);
 });

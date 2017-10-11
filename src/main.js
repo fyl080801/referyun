@@ -77,6 +77,9 @@
                 deps: ['api-check']
             }
         },
+        'director': {
+            path: 'js/director',
+        },
         'api-check': {
             path: '../bower_components/api-check/dist/api-check',
             shim: {

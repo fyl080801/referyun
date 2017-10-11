@@ -1,10 +1,11 @@
 define([
     'app/application',
     'modules/yun/module',
+    'modules/localstore/providers/map',
     'modules/localstore/configs/storeAdapter',
     'modules/localstore/configs/dataStore',
-    //
-    'modules/localstore/providers/app'
+    // business
+    'modules/localstore/services/app'
 ], function (application) {
     'use strict';
 
@@ -13,7 +14,18 @@ define([
     return angular
         .module('modules.localstore', [
             'modules.yun',
+            'modules.localstore.providers',
             'modules.localstore.configs',
-            'modules.localstore.providers'
+            'modules.localstore.services'
+        ])
+        .config([
+            'modules.localstore.providers.mapProvider',
+            function (mapProvider) {
+                mapProvider.addRoute({
+                    name: 'modules.localstore.services.app',
+                    route: 'app/{id}',
+                    method: 'get'
+                });
+            }
         ]);
 });

@@ -3,14 +3,19 @@ define([
 ], function (configs) {
     'use strict';
 
-    /**
-     * 
-     * @param {*}  modules.yun.configs.storeAdapter
-     * @param {*}  
-     */
-    function decorator($delegate, $timeout) {
+    function resolveUri(apis) {
+        var path = '/';
+        for (var i = 0; i < apis.length; i++) {
+            path += ('/' + apis[i]);
+        }
+        return path;
+    }
+
+    function decorator($delegate, $timeout, map) {
         $delegate.get = function (apiDefer) {
             $timeout(function () {
+                var route = map.getRoute('get', apiDefer.apis);
+
                 apiDefer.resolve(null);
             });
             return apiDefer.promise;
@@ -18,6 +23,8 @@ define([
 
         $delegate.post = function (apiDefer, data) {
             $timeout(function () {
+                var route = map.getRoute('post', apiDefer.apis);
+
                 apiDefer.resolve(null);
             });
             return apiDefer.promise;
@@ -25,6 +32,8 @@ define([
 
         $delegate.put = function (apiDefer, data) {
             $timeout(function () {
+                var route = map.getRoute('put', apiDefer.apis);
+
                 apiDefer.resolve(null);
             });
             return apiDefer.promise;
@@ -32,13 +41,17 @@ define([
 
         $delegate.patch = function (apiDefer, data) {
             $timeout(function () {
+                var route = map.getRoute('patch', apiDefer.apis);
+
                 apiDefer.resolve(null);
             });
             return apiDefer.promise;
         };
 
-        $delegate.del = function (apiDefer) {
+        $delegate.drop = function (apiDefer) {
             $timeout(function () {
+                var route = map.getRoute('delete', apiDefer.apis);
+
                 apiDefer.resolve(null);
             });
             return apiDefer.promise;
@@ -53,6 +66,7 @@ define([
             $provide.decorator('modules.yun.configs.storeAdapter', [
                 '$delegate',
                 '$timeout',
+                'modules.localstore.providers.map',
                 decorator
             ]);
         }
