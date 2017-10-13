@@ -6,7 +6,9 @@ define([
     services.service('modules.localstore.services.app', [
         '$dataStore',
         function ($dataStore) {
+            this.list = function () {
 
+            };
         }
     ]);
 });

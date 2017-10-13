@@ -14,8 +14,9 @@ define([
         function ($scope, $state, $stateParams, $modal, $yun, appService, store) {
             $scope.appService = appService;
 
-            // app/{id}
+            // launcher/{launcherId}/app/{appId}
             store.get()
+                //.append('launcher').append('').append('app').append($stateParams.appid)
                 .append('app').append($stateParams.appid)
                 .then(function (result) {
                     if (result == null) {

@@ -20,6 +20,9 @@ define([
                         var methodCol = me.routes[method] ? me.routes[method] : [];
                         var $injector = angular.injector();
 
+                        
+                        //$injector.get(apis)
+
                         return null;
                     }
                 };

@@ -3,13 +3,13 @@ define([
 ], function (configs) {
     'use strict';
 
-    function resolveUri(apis) {
-        var path = '/';
-        for (var i = 0; i < apis.length; i++) {
-            path += ('/' + apis[i]);
-        }
-        return path;
-    }
+    // function resolveUri(apis) {
+    //     var path = '/';
+    //     for (var i = 0; i < apis.length; i++) {
+    //         path += ('/' + apis[i]);
+    //     }
+    //     return path;
+    // }
 
     function decorator($delegate, $timeout, map) {
         $delegate.get = function (apiDefer) {
