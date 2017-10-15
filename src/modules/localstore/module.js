@@ -23,8 +23,7 @@ define([
             function (mapProvider) {
                 mapProvider.addRoute({
                     name: 'modules.localstore.services.app',
-                    route: 'app/{id}',
-                    method: 'get'
+                    route: 'app'
                 });
             }
         ]);

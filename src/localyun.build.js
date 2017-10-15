@@ -9,13 +9,11 @@ require.config({
         'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
         'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
-        'director': 'js/director.min',
         'app/application': 'js/app.application.min'
     },
     shim: {},
     exclude: [
         'metisMenu',
-        'director',
         'app/application'
     ]
 });
