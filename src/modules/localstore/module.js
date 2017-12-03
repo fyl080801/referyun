@@ -4,8 +4,10 @@ define([
     'modules/localstore/providers/map',
     'modules/localstore/configs/storeAdapter',
     'modules/localstore/configs/dataStore',
+    'modules/localstore/configs/routes',
     // business
-    'modules/localstore/services/app'
+    'modules/localstore/services/app',
+    'modules/localstore/services/role'
 ], function (application) {
     'use strict';
 
@@ -17,13 +19,5 @@ define([
             'modules.localstore.providers',
             'modules.localstore.configs',
             'modules.localstore.services'
-        ])
-        .config([
-            'modules.localstore.providers.mapProvider',
-            function (mapProvider) {
-                mapProvider.addRoute('get', '/app/{appid}', function (appid) {
-                    return {};
-                });
-            }
         ]);
 });

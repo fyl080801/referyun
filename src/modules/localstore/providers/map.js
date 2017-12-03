@@ -20,15 +20,19 @@ define([
              * 添加伪路由
              * @param {*} method 方法
              * @param {*} apiDef api定义 /aaa/{id}
-             * @param {*} func 路由方法
+             * @param {*} service 所在服务
+             * @param {*} funcName 方法名
              */
-            this.addRoute = function (method, apiDef, func) {
+            this.addRoute = function (method, apiDef, service, funcName) {
                 var methodStore = me.routes[method];
                 var matched = me.matchRoute(methodStore, apiDef);
                 if (matched) {
                     delete methodStore[matched.apiDef];
                 }
-                methodStore[apiDef] = func;
+                methodStore[apiDef] = {
+                    name: service,
+                    method: funcName
+                };
             };
 
             /**
@@ -48,7 +52,7 @@ define([
                     return {
                         apiDef: apiDef,
                         apis: defPaths.slice(1),
-                        func: methodStore[apiDef]
+                        service: methodStore[apiDef]
                     };
                 }
                 return null;

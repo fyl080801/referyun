@@ -12,8 +12,9 @@ define([
             $provide.decorator('modules.yun.configs.storeAdapter', [
                 '$delegate',
                 '$timeout',
+                '$injector',
                 'modules.localstore.providers.map',
-                function ($delegate, $timeout, map) {
+                function ($delegate, $timeout, $injector, map) {
 
                     function invoke(apiDefer, matched) {
                         var queries = apiDefer.queries;
@@ -28,7 +29,9 @@ define([
                             }
                         }
 
-                        var matchedArgs = matched.func.toString().split(')')[0].split('(')[1].split(',');
+                        var service = $injector.get(matched.service.name);
+                        var func = service[matched.service.method];
+                        var matchedArgs = func.toString().split(')')[0].split('(')[1].split(',');
                         var funcArgs = [];
                         if (data) {
                             funcArgs.push(data);
@@ -47,7 +50,7 @@ define([
                         }
 
                         try {
-                            apiDefer.resolve(matched.func.apply($delegate, funcArgs));
+                            apiDefer.resolve(func.apply($delegate, funcArgs));
                         } catch (ex) {
                             apiDefer.reject(ex);
                         }
@@ -55,7 +58,7 @@ define([
 
                     $delegate.get = function (apiDefer) {
                         $timeout(function () {
-                            invoke(apiDefer, map.getRoute('get', apiDefer.apis))
+                            invoke(apiDefer, map.getRoute('get', apiDefer.apis));
                         });
                         return apiDefer.promise;
                     };

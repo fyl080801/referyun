@@ -5,9 +5,15 @@ define([
 
     services.service('modules.localstore.services.app', [
         '$dataStore',
-        function ($dataStore) {
+        'modules.localstore.services.role',
+        function ($dataStore, role) {
             this.list = function () {
 
+            };
+
+            this.getApp = function (appid) {
+
+                return {};
             };
         }
     ]);
