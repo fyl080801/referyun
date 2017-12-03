@@ -21,9 +21,8 @@ define([
         .config([
             'modules.localstore.providers.mapProvider',
             function (mapProvider) {
-                mapProvider.addRoute({
-                    name: 'modules.localstore.services.app',
-                    route: 'app'
+                mapProvider.addRoute('get', '/app/{appid}', function (appid) {
+
                 });
             }
         ]);
