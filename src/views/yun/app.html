@@ -1,7 +1,9 @@
 <div ng-controller="modules.yun.controllers.app">
     <div class="navbar navbar-inverse navbar-fixed-top" style="margin: 0">
         <div class="navbar-header navbar-form">
-            <button class="btn btn-primary" ng-click="appService.toggleWorkbench()"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+            <button class="btn btn-primary" ng-click="appService.toggleWorkbench()">
+                <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+            </button>
         </div>
         <div ui-view="header">
 
@@ -9,41 +11,59 @@
         <div class="navbar-right container-fluid">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="" ng-show="$state.current.name!=='app.main'" ng-click="$state.go('app.main', { appid: $stateParams.appid })"><i class="fa fa-reply fa-fw"></i> 返回应用</a>
-                    <a href="" ng-show="$state.current.name==='app.main'" ng-click="$state.go('app.edit', { appid: $stateParams.appid })"><i class="fa fa-cog fa-fw"></i> 管理应用</a>
+                    <a href="" ng-show="$state.current.name!=='app.main'" ng-click="$state.go('app.main', { appid: $stateParams.appid })">
+                        <i class="fa fa-reply fa-fw"></i> 返回应用</a>
+                    <a href="" ng-show="$state.current.name==='app.main'" ng-click="$state.go('app.edit', { appid: $stateParams.appid })">
+                        <i class="fa fa-cog fa-fw"></i> 管理应用</a>
                 </li>
-                <li><a>|</a></li>
                 <li>
-                    <a href="" ng-click="appService.toggleMessage()"><i class="fa fa-bell fa-fw" aria-hidden="true"></i></a>
+                    <a>|</a>
+                </li>
+                <li>
+                    <a href="" ng-click="appService.toggleMessage()">
+                        <i class="fa fa-bell fa-fw" aria-hidden="true"></i>
+                    </a>
                 </li>
                 <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i></a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="">用户信息</a></li>
-                        <li><a href="">个性化设置</a></li>
+                        <li>
+                            <a href="">用户信息</a>
+                        </li>
+                        <li>
+                            <a href="">个性化设置</a>
+                        </li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="">注销</a></li>
+                        <li>
+                            <a href="">注销</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
-    <div ui-view="content" class="yun-content">
-
-    </div>
+    <div ui-view="content" class="yun-content"></div>
     <div class="yun-workbench-back" ng-click="appService.toggleWorkbench()"></div>
     <div class="yun-workbench" ng-controller="modules.yun.controllers.workbench">
         <div class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
-                <span class="navbar-brand"><i class="glyphicon glyphicon-briefcase"></i></span>
+                <span class="navbar-brand">
+                    <i class="glyphicon glyphicon-briefcase"></i>
+                </span>
             </div>
             <div class="navbar-header">
-                <span class="navbar-brand"><strong>工作台</strong></span>
+                <span class="navbar-brand">
+                    <strong>工作台</strong>
+                </span>
             </div>
             <div class="navbar-right container-fluid">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="close" aria-label="Close" ng-click="appService.toggleWorkbench()"><span aria-hidden="true">&times;</span></a>
+                        <a class="close" aria-label="Close" ng-click="appService.toggleWorkbench()">
+                            <span aria-hidden="true">&times;</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -87,31 +107,46 @@
         <div class="yun-apps panel-body">
             <div class="container-fluid row">
                 <!--应用图标: start-->
-                <div class="col-md-3" ng-repeat="appinf in $yun.apps">
-                    <div class="panel appblock" ng-class="{ 'panel-default': !appinf.actived, 'panel-primary': appinf.actived }">
+                <div class="col-md-3" ng-repeat="appinf in apps">
+                    <div class="panel appblock" ng-class="{ 'panel-default': appinf.appId!==$stateParams.appid, 'panel-primary': appinf.appId===$stateParams.appid }">
                         <div class="panel-heading"></div>
                         <div class="panel-body appbody">
                             <a href="" role="button" ng-click="$state.go('app.main', { appid: appinf.appId });appService.toggleWorkbench()">
                                 <p class="text-center">
-                                    <span ng-class="{ 'text-muted': !appinf.actived, 'text-primary': appinf.actived }" style="font-size: 36pt">
+                                    <span ng-class="{ 'text-muted': appinf.appId!==$stateParams.appid, 'text-primary': appinf.appId===$stateParams.appid }" style="font-size: 36pt">
                                         <i ng-class="{true: appinf.icon, false: 'glyphicon glyphicon-th-large'}[appinf.icon!==undefined && appinf.icon!=='']"></i>
                                     </span>
                                 </p>
                             </a>
                         </div>
                         <div class="panel-footer clearfix">
-                            <a href="" ng-click="$state.go('app.edit', { appid: appinf.appId });appService.toggleWorkbench()"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
+                            <a href="" ng-click="$state.go('app.edit', { appid: appinf.appId });appService.toggleWorkbench()">
+                                <i class="fa fa-cog fa-fw" aria-hidden="true"></i> 管理应用</a>
                             <div class="pull-right dropdown">
-                                <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a>
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <i class="fa fa-edit fa-fw" aria-hidden="true"></i>
+                                </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="" ng-click="appinf.nameEditing=true">修改名称</a></li>
-                                    <li><a href="" ng-click="changeAppIcon(appinf)">修改样式</a></li>
+                                    <li>
+                                        <a href="" ng-click="appinf.nameEditing=true">修改名称</a>
+                                    </li>
+                                    <li>
+                                        <a href="" ng-click="changeAppIcon(appinf)">修改样式</a>
+                                    </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="">复制</a></li>
-                                    <li ng-show="appinf.enabled"><a href="" ng-click="appinf.enabled=false">禁用</a></li>
-                                    <li ng-show="!appinf.enabled"><a href="" ng-click="appinf.enabled=true">启用</a></li>
+                                    <li>
+                                        <a href="">复制</a>
+                                    </li>
+                                    <li ng-show="appinf.enabled">
+                                        <a href="" ng-click="appinf.enabled=false">禁用</a>
+                                    </li>
+                                    <li ng-show="!appinf.enabled">
+                                        <a href="" ng-click="appinf.enabled=true">启用</a>
+                                    </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="" ng-click="dropApp(appinf.appId)">删除</a></li>
+                                    <li>
+                                        <a href="" ng-click="dropApp(appinf.appId)">删除</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -124,7 +159,9 @@
                             <div class="input-group" ng-class="{ 'has-error': appinf.appName===''||appinf.appName===null }">
                                 <input class="form-control" ng-model="appinf.appName">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-success" ng-disabled="appinf.appName===''||appinf.appName===null" ng-click="changeAppName(appinf)"><i class="glyphicon glyphicon-ok"></i></button>
+                                    <button class="btn btn-success" ng-disabled="appinf.appName===''||appinf.appName===null" ng-click="changeAppName(appinf)">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +169,8 @@
                 </div>
                 <!--应用图标: end-->
                 <div class="col-md-3">
-                    <button class="btn btn-default appblock" style="width: 100%" ng-click="addApp()"><i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
+                    <button class="btn btn-default appblock" style="width: 100%" ng-click="addApp()">
+                        <i class="glyphicon glyphicon-plus"></i> 创建新应用</button>
                 </div>
             </div>
         </div>
@@ -142,16 +180,22 @@
         <div class="navbar navbar-default navbar-static-top">
             <div class="navbar-left col-md-offset-5">
                 <div class="navbar-header">
-                    <span class="navbar-brand"><i class="glyphicon glyphicon-comment"></i></span>
+                    <span class="navbar-brand">
+                        <i class="glyphicon glyphicon-comment"></i>
+                    </span>
                 </div>
                 <div class="navbar-header">
-                    <span class="navbar-brand"><strong>消息管理</strong></span>
+                    <span class="navbar-brand">
+                        <strong>消息管理</strong>
+                    </span>
                 </div>
             </div>
             <div class="navbar-right container-fluid">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="close" aria-label="Close" ng-click="appService.toggleMessage()"><span aria-hidden="true">&times;</span></a>
+                        <a class="close" aria-label="Close" ng-click="appService.toggleMessage()">
+                            <span aria-hidden="true">&times;</span>
+                        </a>
                     </li>
                 </ul>
             </div>

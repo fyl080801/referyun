@@ -1,26 +1,29 @@
-<div ng-controller="modules.manage.controllers.edit">
+<div ng-controller="modules.manage.controllers.edit" ng-init="loadGroups()">
     <div class="yun-left yun-nav" ng-hide="groupSorting===true">
         <div class="navbar navbar-default navbar-static-top" style="margin: 0">
             <div class="navbar-form container-fluid">
                 <div class="form-group col-md-6 text-center">
-                    <a href="" class="form-control-static" ng-click="addGroup()"><i class="fa fa-plus-circle" aria-hidden="true"></i> 新建分组</a>
+                    <a href="" class="form-control-static" ng-click="addGroup()">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i> 新建分组</a>
                 </div>
                 <div class="form-group col-md-6 text-center">
-                    <a href="" class="form-control-static" ng-click="groupSorting=true"><i class="fa fa-arrows" aria-hidden="true"></i> 调整顺序</a>
+                    <a href="" class="form-control-static" ng-click="groupSorting=true">
+                        <i class="fa fa-arrows" aria-hidden="true"></i> 调整顺序</a>
                 </div>
             </div>
         </div>
-        <div tree-view tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
+        <div tree-view tree-data="groups" text-field="GroupName" value-field='Id'></div>
     </div>
     <div class="yun-left yun-nav" ng-hide="!groupSorting">
         <div class="navbar navbar-default navbar-static-top" style="margin: 0">
             <div class="navbar-form container-fluid">
                 <div class="form-group col-md-12 text-center">
-                    <a href="" class="form-control-static" ng-click="saveGroupSorting()"><i class="fa fa-check-circle-o" aria-hidden="true"></i> 完成排序</a>
+                    <a href="" class="form-control-static" ng-click="saveGroupSorting()">
+                        <i class="fa fa-check-circle-o" aria-hidden="true"></i> 完成排序</a>
                 </div>
             </div>
         </div>
-        <div tree-view tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
+        <div tree-view tree-data="groups" text-field="groupName" value-field='groupId'></div>
     </div>
     <div class="yun-right">
         <div class="navbar"></div>
@@ -31,25 +34,37 @@
                     <div class="col-md-4 text-center">
                         <a class="btn btn-default yun-addbtn" ng-click="addForm()">
                             <i class="fa fa-sticky-note fa-fw fa-5x text-primary" aria-hidden="true"></i>
-                            <p><strong>新建表单</strong></p>
+                            <p>
+                                <strong>新建表单</strong>
+                            </p>
                             <hr/>
-                            <p class="text-left text-muted"><small>表单可用来搜集数据，并带有数据协作功能，适合进行数据上报</small></p>
+                            <p class="text-left text-muted">
+                                <small>表单可用来搜集数据，并带有数据协作功能，适合进行数据上报</small>
+                            </p>
                         </a>
                     </div>
                     <div class="col-md-4 text-center">
                         <a class="btn btn-default yun-addbtn" ng-click="addFlow()">
                             <i class="fa fa-sitemap fa-fw fa-5x text-warning" aria-hidden="true"></i>
-                            <p><strong>新建流程表单</strong></p>
+                            <p>
+                                <strong>新建流程表单</strong>
+                            </p>
                             <hr/>
-                            <p class="text-left text-muted"><small>流程表单适合报销、请假申请或其他工作流</small></p>
+                            <p class="text-left text-muted">
+                                <small>流程表单适合报销、请假申请或其他工作流</small>
+                            </p>
                         </a>
                     </div>
                     <div class="col-md-4 text-center">
                         <a class="btn btn-default yun-addbtn" ng-click="addReport()">
                             <i class="fa fa-bar-chart fa-fw fa-5x text-success" aria-hidden="true"></i>
-                            <p><strong>新建报表</strong></p>
+                            <p>
+                                <strong>新建报表</strong>
+                            </p>
                             <hr/>
-                            <p class="text-left text-muted"><small>报表适合用来进行数据汇总、结果展示，趋势分析等</small></p>
+                            <p class="text-left text-muted">
+                                <small>报表适合用来进行数据汇总、结果展示，趋势分析等</small>
+                            </p>
                         </a>
                     </div>
                 </div>

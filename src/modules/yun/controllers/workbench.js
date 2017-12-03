@@ -9,35 +9,25 @@ define([
         '$modal',
         '$yun',
         'app.services.popupService',
-        'modules.yun.services.utility',
         'modules.yun.services.appService',
         'modules.yun.services.store',
-        function ($scope, $state, $modal, $yun, popupService, utility, appService, store) {
+        function ($scope, $state, $modal, $yun, popupService, appService, store) {
             $scope.appService = appService;
 
             // app
             $scope.addApp = function () {
-                // store.post({
-                //         AppName: '未命名应用'
-                //     })
-                //     .append('app')
-                //     .then(function (result) {
-                //         $state.go('app.main', {
-                //             appid: result.Id
-                //         });
-                //     });
-
-                $yun.apps.push({
-                    appId: utility.uid(),
-                    appName: '未命名应用',
-                    actived: false,
-                    enabled: true,
-                    nameEditing: false
-                });
-
-                $state.go('app.main', {
-                    appid: $yun.apps[$yun.apps.length - 1].appId
-                });
+                store.post()
+                    .append('app')
+                    .data({
+                        appName: '未命名应用',
+                        enabled: true,
+                        nameEditing: false
+                    })
+                    .then(function (result) {
+                        $state.go('app.main', {
+                            appid: result.appId
+                        });
+                    });
             };
 
             $scope.dropApp = function (appid) {
@@ -45,19 +35,21 @@ define([
                     .confirm('是否删除应用？')
                     .ok(function () {
                         $yun.actived = null;
-                        $.each($yun.apps, function (idx, item) {
-                            if (item.appId + '' === appid) {
-                                $yun.apps.splice(idx, 1);
-                                return false;
-                            }
-                        });
-                        if ($yun.apps[0]) {
-                            $state.go('app.main', {
-                                appid: $yun.apps[0].appId
+                        store.drop()
+                            .append('app').append(appid)
+                            .then(function () {
+                                store.get()
+                                    .append('app').append('')
+                                    .then(function (result) {
+                                        if (result) {
+                                            $state.go('app.main', {
+                                                appid: result.appId
+                                            });
+                                        } else {
+                                            $state.go('welcome');
+                                        }
+                                    });
                             });
-                        } else {
-                            // 没有app时需跳转到创建界面
-                        }
                     });
             };
 

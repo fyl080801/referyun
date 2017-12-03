@@ -12,6 +12,8 @@ define([
         'modules.yun.services.appService',
         'modules.yun.services.store',
         function ($scope, $state, $stateParams, $modal, $yun, appService, store) {
+            $scope.apps = [];
+
             $scope.appService = appService;
 
             store.get()
@@ -21,6 +23,11 @@ define([
                         $state.go('welcome');
                     } else {
                         $yun.actived = result;
+                        store.get()
+                            .append('app')
+                            .then(function (result) {
+                                $scope.apps = result;
+                            });
                     }
                 });
         }

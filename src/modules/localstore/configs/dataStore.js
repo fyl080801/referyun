@@ -8,6 +8,7 @@ define([
         function ($provide) {
             $provide.constant('$dataStore', {
                 apps: [],
+                groups: [],
                 roles: [],
                 users: [],
                 launchers: [],

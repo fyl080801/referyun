@@ -9,8 +9,10 @@ define([
         '$stateParams',
         '$modal',
         '$yun',
+        'modules.yun.services.store',
         'modules.yun.services.utility',
-        function ($scope, $state, $stateParams, $modal, $yun, utility) {
+        function ($scope, $state, $stateParams, $modal, $yun, store, utility) {
+
             function relsoveGroup(yun) {
                 yun.groups[yun.actived.appId] = yun.groups[yun.actived.appId] ? yun.groups[yun.actived.appId] : [];
             }
@@ -34,6 +36,8 @@ define([
                 relsoveGroup(yun);
             }
 
+            $scope.groups = [];
+
             $scope.groupSorting = false;
 
             $scope.saveGroupSorting = function () {
@@ -44,17 +48,26 @@ define([
                 $modal
                     .open({
                         templateUrl: 'views/manage/groupForm.html',
-                        size: 'sm'
+                        size: 'sm',
+                        data: {
+                            AppId: $stateParams.appid
+                        }
                     }).result
                     .then(function (data) {
-                        relsoveGroup($yun);
+                        store.post()
+                            .append('app').append($stateParams.appid).append('group')
+                            .data(data)
+                            .then(function (result) {
+                                $scope.loadGroups();
+                            });
+                        // relsoveGroup($yun);
 
-                        $yun.groups[$yun.actived.appId].push({
-                            groupName: data.GroupName,
-                            isLeaf: false,
-                            icon: null,
-                            children: []
-                        });
+                        // $yun.groups[$yun.actived.appId].push({
+                        //     groupName: data.GroupName,
+                        //     isLeaf: false,
+                        //     icon: null,
+                        //     children: []
+                        // });
                     });
             };
 
@@ -107,6 +120,14 @@ define([
 
             $scope.addReport = function () {
 
+            };
+
+            $scope.loadGroups = function () {
+                store.get()
+                    .append('app').append($stateParams.appid).append('group')
+                    .then(function (result) {
+                        $scope.groups = result;
+                    });
             };
         }
     ]);

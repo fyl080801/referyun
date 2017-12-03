@@ -5,8 +5,10 @@ define([
     'modules/localstore/configs/storeAdapter',
     'modules/localstore/configs/dataStore',
     'modules/localstore/configs/routes',
+    'modules/localstore/factories/utility',
     // business
     'modules/localstore/services/app',
+    'modules/localstore/services/groups',
     'modules/localstore/services/role'
 ], function (application) {
     'use strict';
@@ -18,6 +20,7 @@ define([
             'modules.yun',
             'modules.localstore.providers',
             'modules.localstore.configs',
+            'modules.localstore.factories',
             'modules.localstore.services'
         ]);
 });

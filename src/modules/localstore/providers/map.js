@@ -43,11 +43,11 @@ define([
                 for (var apiDef in methodStore) {
                     var defPaths = apiDef.split('/');
                     var apiPaths = $.isArray(api) ? api : api.split('/');
-                    if ((defPaths.length - 1) !== apiPaths.length) return null;
+                    if ((defPaths.length - 1) !== apiPaths.length) continue;
                     for (var i = 0; i < apiPaths.length; i++) {
                         var apiPathName = apiPaths[i],
                             defPathName = defPaths[i + 1];
-                        if (apiPathName != defPathName && !paramTest.test(defPathName)) return null;
+                        if (apiPathName != defPathName && !paramTest.test(defPathName)) continue;
                     }
                     return {
                         apiDef: apiDef,
