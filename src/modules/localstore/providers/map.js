@@ -47,6 +47,7 @@ define([
                     }
                     return {
                         apiDef: apiDef,
+                        apis: defPaths.slice(1),
                         func: methodStore[apiDef]
                     };
                 }
@@ -59,7 +60,7 @@ define([
                         var methodStore = me.routes[method];
                         var matched = me.matchRoute(methodStore, apis);
                         if (matched) {
-                            return matched.func;
+                            return matched;
                         }
                         return null;
                     }

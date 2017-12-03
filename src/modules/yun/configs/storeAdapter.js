@@ -9,7 +9,7 @@ define([
                 'app.services.httpService',
                 function (httpService) {
 
-                    function resloveUrl(apiDefer) {
+                    function resolveUrl(apiDefer) {
                         var rawUrl = '/' + apiDefer.apis.join('/');
                         // 加querystring apiDefer.queries
                         return rawUrl;

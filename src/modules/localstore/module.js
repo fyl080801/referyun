@@ -22,7 +22,7 @@ define([
             'modules.localstore.providers.mapProvider',
             function (mapProvider) {
                 mapProvider.addRoute('get', '/app/{appid}', function (appid) {
-
+                    return {};
                 });
             }
         ]);
