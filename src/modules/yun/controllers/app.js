@@ -33,7 +33,9 @@ define([
                                 });
                         }
                     });
+            };
 
+            $scope.loadGroups = function () {
                 store.get()
                     .append('app').append($stateParams.appid).append('group')
                     .then(function (result) {
