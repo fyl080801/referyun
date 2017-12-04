@@ -4,10 +4,14 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav" role="tablist" style="width: 100%">
                 <li class="text-center active" style="width: 50%">
-                    <a href="#app_menu" aria-controls="app_menu" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-th-list"></i> 应用菜单</a>
+                    <a href="#app_menu" aria-controls="app_menu" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-th-list"></i> 应用菜单
+                    </a>
                 </li>
                 <li class="text-center" style="width: 50%">
-                    <a href="#app_favorites" aria-controls="app_favorites" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-heart"></i> 收藏夹</a>
+                    <a href="#app_favorites" aria-controls="app_favorites" role="tab" data-toggle="tab">
+                        <i class="glyphicon glyphicon-heart"></i> 收藏夹
+                    </a>
                 </li>
             </ul>
         </div>
@@ -15,7 +19,7 @@
     <!--菜单栏-->
     <div class="tab-content yun-nav">
         <div role="tabpanel" class="tab-pane active" id="app_menu">
-            <div tree-view tree-data="$yun.groups[$yun.actived.appId]" text-field="groupName" value-field='groupId'></div>
+            <div tree-view tree-data="groups" text-field="GroupName" value-field='Id'></div>
         </div>
         <div role="tabpanel" class="tab-pane" id="app_favorites">
             收藏
@@ -26,7 +30,9 @@
     <div class="navbar navbar-blank navbar-static-top" style="margin: 0">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href=""><i class="glyphicon glyphicon-home"></i></a>
+                <a class="navbar-brand" href="">
+                    <i class="glyphicon glyphicon-home"></i>
+                </a>
             </div>
         </div>
     </div>

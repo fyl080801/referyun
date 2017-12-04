@@ -1,10 +1,10 @@
 <div ng-controller="modules.manage.controllers.editHeader">
     <div ng-hide="titleEditing===true">
-        <strong><a href="" class="navbar-brand" ng-click="titleEditing=true"><u>{{$yun.actived.appName}}</u></a></strong>
+        <strong><a href="" class="navbar-brand" ng-click="titleEditing=true"><u>{{$yun.actived.AppName}}</u></a></strong>
     </div>
     <div class="navbar-header navbar-form" ng-hide="titleEditing===false">
         <div class="input-group">
-            <input class="form-control" ng-model="$yun.actived.appName">
+            <input class="form-control" ng-model="$yun.actived.AppName">
             <div class="input-group-btn">
                 <div class="btn-group">
                     <button class="btn btn-success" ng-click="changeTitle()"><i class="glyphicon glyphicon-ok"></i></button>

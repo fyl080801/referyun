@@ -19,13 +19,13 @@ define([
                 store.post()
                     .append('app')
                     .data({
-                        appName: '未命名应用',
-                        enabled: true,
+                        AppName: '未命名应用',
+                        Enabled: true,
                         nameEditing: false
                     })
                     .then(function (result) {
                         $state.go('app.main', {
-                            appid: result.appId
+                            appid: result.Id
                         });
                     });
             };
@@ -43,7 +43,7 @@ define([
                                     .then(function (result) {
                                         if (result) {
                                             $state.go('app.main', {
-                                                appid: result.appId
+                                                appid: result.Id
                                             });
                                         } else {
                                             $state.go('welcome');

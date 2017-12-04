@@ -9,6 +9,7 @@ define([
             function (mapProvider) {
                 mapProvider.addRoute('get', '/app/{appid}/group', 'modules.localstore.services.groups', 'list');
                 mapProvider.addRoute('post', '/app/{appid}/group', 'modules.localstore.services.groups', 'addGroup');
+                mapProvider.addRoute('drop', '/app/{appid}/group/{groupid}', 'modules.localstore.services.groups', 'deleteGroup');
             }
         ])
         .service('modules.localstore.services.groups', [
@@ -25,6 +26,15 @@ define([
                 this.addGroup = function (data) {
                     data.Id = utility.uid();
                     $dataStore.groups.push(data);
+                };
+
+                this.deleteGroup = function (groupid) {
+                    $.each($dataStore.groups, function (idx, item) {
+                        if (item.Id + '' === groupid) {
+                            $dataStore.groups.splice(idx, 1);
+                            return false;
+                        }
+                    });
                 };
 
                 // this.addApp = function (data) {

@@ -14,22 +14,32 @@ define([
         function ($scope, $state, $stateParams, $modal, $yun, appService, store) {
             $scope.apps = [];
 
+            $scope.groups = [];
+
             $scope.appService = appService;
 
-            store.get()
-                .append('app').append($stateParams.appid)
-                .then(function (result) {
-                    if (result == null) {
-                        $state.go('welcome');
-                    } else {
-                        $yun.actived = result;
-                        store.get()
-                            .append('app')
-                            .then(function (result) {
-                                $scope.apps = result;
-                            });
-                    }
-                });
+            $scope.load = function () {
+                store.get()
+                    .append('app').append($stateParams.appid)
+                    .then(function (result) {
+                        if (result == null) {
+                            $state.go('welcome');
+                        } else {
+                            $yun.actived = result;
+                            store.get()
+                                .append('app')
+                                .then(function (result) {
+                                    $scope.apps = result;
+                                });
+                        }
+                    });
+
+                store.get()
+                    .append('app').append($stateParams.appid).append('group')
+                    .then(function (result) {
+                        $scope.groups = result;
+                    });
+            };
         }
     ]);
 });

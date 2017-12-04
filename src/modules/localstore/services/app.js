@@ -22,7 +22,7 @@ define([
                 };
 
                 this.addApp = function (data) {
-                    data.appId = utility.uid();
+                    data.Id = utility.uid();
                     $dataStore.apps.push(data);
                     return data;
                 };
@@ -30,7 +30,7 @@ define([
                 this.getApp = function (appid) {
                     if (appid && appid !== '') {
                         return $.grep($dataStore.apps, function (item) {
-                            return item.appId === appid;
+                            return item.Id === appid;
                         })[0];
                     } else if ($dataStore.apps.length > 0) {
                         return $dataStore.apps[0];
@@ -41,7 +41,7 @@ define([
 
                 this.deleteApp = function (appid) {
                     $.each($dataStore.apps, function (idx, item) {
-                        if (item.appId + '' === appid) {
+                        if (item.Id + '' === appid) {
                             $dataStore.apps.splice(idx, 1);
                             return false;
                         }
