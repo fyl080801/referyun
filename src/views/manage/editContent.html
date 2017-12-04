@@ -12,7 +12,45 @@
                 </div>
             </div>
         </div>
-        <div tree-view tree-data="groups" text-field="GroupName" value-field='Id'></div>
+        <div tree-nav tree-data="groups" text-field="GroupName" value-field="Id" children-field="Children" level-field="Level" leaf-field="IsLeaf"
+            editing="true" add-clicked="addGroup($item, $event)" edit-clicked="editGroup($item)"></div>
+        <!-- <div tree-view tree-data="groups" text-field="GroupName" value-field='Id'></div> -->
+        <!-- <ul class="nav nav-pills nav-stacked">
+            <li role="presentation">
+                <a href="#">Home</a>
+            </li>
+            <li role="presentation">
+                <a href="#">Profile</a>
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation">
+                        <a href="#">Home</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#">Profile</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#">Messages</a>
+                    </li>
+                </ul>
+            </li>
+            <li role="presentation">
+                <a href="#">Messages</a>
+            </li>
+        </ul> -->
+        <!-- <div class="nav nav-pills nav-stacked">
+            <a href="#" class="list-group-item">
+                Cras justo odio
+            </a>
+            <div>
+                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item">Morbi leo risus</a>
+                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            </div>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
+        </div> -->
     </div>
     <div class="yun-left yun-nav" ng-hide="!groupSorting">
         <div class="navbar navbar-default navbar-static-top" style="margin: 0">

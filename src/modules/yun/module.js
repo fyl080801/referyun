@@ -26,14 +26,14 @@ define([
                     .state('welcome', {
                         url: '/welcome',
                         dependencies: ['modules/yun/requires'],
-                        templateUrl: 'views/yun/welcome.html'
+                        templateUrl: 'modules/yun/views/welcome.html'
                     });
 
                 $stateProvider
                     .state('app', {
                         url: '/app/{appid}',
                         dependencies: ['modules/yun/requires'],
-                        templateUrl: 'views/yun/app.html'
+                        templateUrl: 'modules/yun/views/app.html'
                     });
 
                 $stateProvider
@@ -42,10 +42,10 @@ define([
                         dependencies: ['modules/yun/requires'],
                         views: {
                             'header': {
-                                templateUrl: 'views/yun/appHeader.html'
+                                templateUrl: 'modules/yun/views/appHeader.html'
                             },
                             'content': {
-                                templateUrl: 'views/yun/appContent.html'
+                                templateUrl: 'modules/yun/views/appContent.html'
                             }
                         }
                     });

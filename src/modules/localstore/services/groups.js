@@ -8,8 +8,8 @@ define([
             'modules.localstore.providers.mapProvider',
             function (mapProvider) {
                 mapProvider.addRoute('get', '/app/{appid}/group', 'modules.localstore.services.groups', 'list');
-                mapProvider.addRoute('post', '/app/{appid}/group', 'modules.localstore.services.groups', 'addGroup');
-                mapProvider.addRoute('drop', '/app/{appid}/group/{groupid}', 'modules.localstore.services.groups', 'deleteGroup');
+                mapProvider.addRoute('post', '/group', 'modules.localstore.services.groups', 'addGroup');
+                mapProvider.addRoute('drop', '/group/{groupid}', 'modules.localstore.services.groups', 'deleteGroup');
             }
         ])
         .service('modules.localstore.services.groups', [
@@ -25,6 +25,7 @@ define([
 
                 this.addGroup = function (data) {
                     data.Id = utility.uid();
+                    data.Path = data.Path ? data.Path + '/' + data.Id : data.Id;
                     $dataStore.groups.push(data);
                 };
 

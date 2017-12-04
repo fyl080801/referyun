@@ -270,7 +270,7 @@ body {
 /* 导航*/
 
 .yun-nav .nav>li>a {
-    padding: 10px 20px 10px 25px;
+    padding: 10px 0 10px 15px;
 }
 
 
@@ -283,9 +283,10 @@ body {
     margin-right: 6px;
 }
 
-.yun-nav .nav>li.active {
+
+/* .yun-nav .nav>li.active {
     border-left: 4px solid;
-}
+} */
 
 .yun-nav .nav.nav-second-level>li.active {
     border: none;

@@ -1,0 +1,14 @@
+<a href="" ng-if="!isLeaf(item)" ng-click="warpCallback('itemClicked', item, $event)">
+    <i class="glyphicon glyphicon-trash pull-right" ng-show="editing" ng-click="warpCallback('removeClicked', item, $event)"></i>
+    <i class="glyphicon glyphicon-plus pull-right" ng-show="editing" ng-click="warpCallback('addClicked', item, $event)"></i>
+    <i class="glyphicon glyphicon-pencil pull-right" ng-show="editing" ng-click="warpCallback('editClicked', item, $event)"></i>
+    <i class="{{getItemIcon(item)}}" ng-click="itemExpended(item, $event)" ng-init="initStyle(item)" ng-style="item.objStyle"></i>
+    <span class='text-field'>{{item[textField]}}</span>
+</a>
+<a href="" ng-if="isLeaf(item)" ng-click="warpCallback('itemClicked', item, $event)" ng-init="initStyle(item)">
+    <i class="{{getItemIcon(item)}}" ng-style="item.objStyle"></i>
+    <span class='text-field'>{{item[textField]}}</span>
+</a>
+<ul ng-if="!isLeaf(item)" class="nav nav-pills nav-stacked" ng-show="item.$$isExpend">
+    <li ng-repeat="item in item[childrenField]" ng-class="{'active':itemActive[valueField]===item[valueField]}" ng-include="'modules/yun/templates/navItem.html'"></li>
+</ul>

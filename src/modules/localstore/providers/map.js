@@ -41,17 +41,22 @@ define([
              */
             this.matchRoute = function (methodStore, api) {
                 for (var apiDef in methodStore) {
-                    var defPaths = apiDef.split('/');
+                    var defPaths = apiDef.split('/').slice(1);
                     var apiPaths = $.isArray(api) ? api : api.split('/');
-                    if ((defPaths.length - 1) !== apiPaths.length) continue;
+                    if (defPaths.length !== apiPaths.length) continue;
+                    var notMatched = false;
                     for (var i = 0; i < apiPaths.length; i++) {
                         var apiPathName = apiPaths[i],
-                            defPathName = defPaths[i + 1];
-                        if (apiPathName != defPathName && !paramTest.test(defPathName)) continue;
+                            defPathName = defPaths[i];
+                        if (apiPathName != defPathName && !paramTest.test(defPathName)) {
+                            notMatched = true;
+                            break;
+                        }
                     }
+                    if (notMatched) continue;
                     return {
                         apiDef: apiDef,
-                        apis: defPaths.slice(1),
+                        apis: defPaths,
                         service: methodStore[apiDef]
                     };
                 }

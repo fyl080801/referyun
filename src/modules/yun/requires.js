@@ -1,5 +1,6 @@
 define([
     'modules/yun/directives/ngRepeated',
+    'modules/yun/directives/treeNav',
     'modules/yun/directives/treeView',
     'modules/yun/services/store',
     'modules/yun/services/utility',
