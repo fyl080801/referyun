@@ -4,7 +4,6 @@ define([
     'modules/localstore/providers/map',
     'modules/localstore/configs/storeAdapter',
     'modules/localstore/configs/dataStore',
-    'modules/localstore/configs/routes',
     'modules/localstore/factories/utility',
     // business
     'modules/localstore/services/app',
