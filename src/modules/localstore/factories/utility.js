@@ -13,6 +13,7 @@ define([
             return {
                 uid: uid
             };
+
         }
     ]);
 });

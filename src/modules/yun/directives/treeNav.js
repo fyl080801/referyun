@@ -7,7 +7,7 @@ define([
         function () {
             function controller($scope) {
                 $scope.childrenField = $scope.childrenField ? $scope.childrenField : 'children';
-                $scope.leafField = $scope.leafField ? $scope.leafField : 'isLeaf'
+                $scope.leafField = $scope.leafField ? $scope.leafField : 'isLeaf';
                 $scope.levelField = $scope.levelField ? $scope.levelField : 'level';
 
                 $scope.itemExpended = function (item, $event) {
@@ -32,6 +32,10 @@ define([
                     };
                 };
 
+                $scope.getChildrenField = function () {
+                    return $scope.childrenField;
+                };
+
                 $scope.isLeaf = function (item) {
                     return item[$scope.leafField]; //|| (!item[$scope.childrenField] || !item.children.length || item.children.length <= 0);
                 };
@@ -47,16 +51,16 @@ define([
             return {
                 restrict: 'AE',
                 replace: true,
-                template: '<ul class="nav nav-pills nav-stacked"><li ng-repeat="item in treeData" class="clearfix" ng-class="{\'active\':itemActive&&itemActive[valueField]===item[valueField]}" ng-include="\'modules/yun/templates/navItem.html\'"></li></ul>',
+                template: '<ul class="nav nav-pills nav-stacked"><li ng-repeat="item in treeData" class="clearfix" ng-class="{\'active\':activeItem&&activeItem[valueField]===item[valueField]}" ng-include="\'modules/yun/templates/navItem.html\'"></li></ul>',
                 scope: {
                     treeData: '=',
                     textField: '@',
                     valueField: '@',
                     childrenField: '@',
-                    editing: '@',
+                    mode: '@',
                     leafField: '@',
                     levelField: '@',
-                    itemActive: '=',
+                    activeItem: '=',
                     itemClicked: '&',
                     removeClicked: '&',
                     editClicked: '&',

@@ -9,9 +9,10 @@ define([
         '$stateParams',
         '$modal',
         '$yun',
+        'app.services.popupService',
         'modules.yun.services.store',
         'modules.yun.services.utility',
-        function ($scope, $state, $stateParams, $modal, $yun, store, utility) {
+        function ($scope, $state, $stateParams, $modal, $yun, popupService, store, utility) {
 
             // function relsoveGroup(yun) {
             //     yun.groups[yun.actived.appId] = yun.groups[yun.actived.appId] ? yun.groups[yun.actived.appId] : [];
@@ -87,30 +88,6 @@ define([
 
             // };
 
-            function toTree(data) {
-                data.forEach(function (item) {
-                    item.Level = item.Path.split('/').length - 1;
-                    delete item.Children;
-                });
-
-                var map = {};
-                data.forEach(function (item) {
-                    map[item.Id] = item;
-                });
-
-                var val = [];
-                data.forEach(function (item) {
-                    var parent = map[item.ParentId];
-                    if (parent) {
-                        (parent.Children || (parent.Children = [])).push(item);
-                    } else {
-                        val.push(item);
-                    }
-                });
-
-                return val;
-            }
-
             $scope.currentGroup = null;
             $scope.groups = [];
             $scope.groupSorting = false;
@@ -121,7 +98,16 @@ define([
                 store.get()
                     .append('app').append($stateParams.appid).append('group')
                     .then(function (result) {
-                        $scope.groups = toTree(result);
+                        utility.toTree(result)
+                            .key('Id')
+                            .children('Children')
+                            .parentKey('ParentId')
+                            .onEach(function (idx, item) {
+                                item.Level = item.Path.split('/').length - 1;
+                            })
+                            .then(function (tree) {
+                                $scope.groups = tree;
+                            });
                     });
             };
             $scope.selectGroup = function (item) {
@@ -157,15 +143,26 @@ define([
                     .open({
                         templateUrl: 'views/manage/groupForm.html',
                         size: 'sm',
-                        data: item
+                        data: $.extend({}, item)
                     }).result
                     .then(function (data) {
-                        // store.put()
-                        //     .append('group')
-                        //     .data(data)
-                        //     .then(function (result) {
-                        //         $scope.loadGroups();
-                        //     });
+                        store.put()
+                            .append('group')
+                            .data(data)
+                            .then(function (result) {
+                                $scope.loadGroups();
+                            });
+                    });
+            };
+            $scope.deleteGroup = function (item) {
+                popupService
+                    .confirm('是否删除？')
+                    .ok(function () {
+                        store.drop()
+                            .append('group').append(item.Id)
+                            .then(function () {
+                                $scope.loadGroups();
+                            });
                     });
             };
         }
