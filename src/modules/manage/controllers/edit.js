@@ -37,33 +37,6 @@ define([
             //     relsoveGroup(yun);
             // }
 
-            // $scope.addForm = function () {
-            //     $modal
-            //         .open({
-            //             templateUrl: 'views/manage/newForm.html'
-            //         }).result
-            //         .then(function (data) {
-            //             var item = relsoveNewForm($yun);
-
-            //             if (data === 'create') {
-            //                 $yun.groups[$stateParams.appid].push({
-            //                     groupName: item.formName,
-            //                     isLeaf: true,
-            //                     itemType: 'form',
-            //                     itemId: item.uid,
-            //                     icon: 'fa fa-sticky-note',
-            //                 });
-            //             } else {
-
-            //             }
-
-            //             $state.go('app.editform.layout', {
-            //                 appid: $stateParams.appid,
-            //                 formid: item.uid
-            //             });
-            //         });
-            // };
-
             // $scope.addFlow = function () {
             //     $modal
             //         .open({
@@ -163,6 +136,33 @@ define([
                             .then(function () {
                                 $scope.loadGroups();
                             });
+                    });
+            };
+
+            // 添加表单
+            $scope.addForm = function () {
+                $modal
+                    .open({
+                        templateUrl: 'views/manage/newForm.html'
+                    }).result
+                    .then(function (data) {
+
+                        // if (data === 'create') {
+                        //     $yun.groups[$stateParams.appid].push({
+                        //         groupName: item.formName,
+                        //         isLeaf: true,
+                        //         itemType: 'form',
+                        //         itemId: item.uid,
+                        //         icon: 'fa fa-sticky-note',
+                        //     });
+                        // } else {
+
+                        // }
+
+                        $state.go('app.editform.layout', {
+                            appid: $stateParams.appid,
+                            formid: ''
+                        });
                     });
             };
         }

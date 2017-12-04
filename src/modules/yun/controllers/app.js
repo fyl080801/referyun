@@ -11,7 +11,8 @@ define([
         '$yun',
         'modules.yun.services.appService',
         'modules.yun.services.store',
-        function ($scope, $state, $stateParams, $modal, $yun, appService, store) {
+        'modules.yun.services.utility',
+        function ($scope, $state, $stateParams, $modal, $yun, appService, store, utility) {
             $scope.apps = [];
 
             $scope.groups = [];
@@ -39,7 +40,16 @@ define([
                 store.get()
                     .append('app').append($stateParams.appid).append('group')
                     .then(function (result) {
-                        $scope.groups = result;
+                        utility.toTree(result)
+                            .key('Id')
+                            .children('Children')
+                            .parentKey('ParentId')
+                            .onEach(function (idx, item) {
+                                item.Level = item.Path.split('/').length - 1;
+                            })
+                            .then(function (tree) {
+                                $scope.groups = tree;
+                            });
                     });
             };
         }
