@@ -62,7 +62,7 @@ define([
             };
 
             this.drop = function () {
-                var defer = defered($q);
+                var defer = deferedWithData($q);
                 storeAdapter.drop(defer);
                 return defer.promise;
             };
