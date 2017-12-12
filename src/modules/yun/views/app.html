@@ -114,7 +114,7 @@
                             <a href="" role="button" ng-click="$state.go('app.main', { appid: appinf.Id });appService.toggleWorkbench()">
                                 <p class="text-center">
                                     <span ng-class="{ 'text-muted': appinf.Id!==$stateParams.appid, 'text-primary': appinf.Id===$stateParams.appid }" style="font-size: 36pt">
-                                        <i ng-class="{true: appinf.icon, false: 'glyphicon glyphicon-th-large'}[appinf.icon!==undefined && appinf.icon!=='']"></i>
+                                        <i ng-class="{true: appinf.Icon, false: 'glyphicon glyphicon-th-large'}[appinf.Icon!==undefined && appinf.Icon!=='']"></i>
                                     </span>
                                 </p>
                             </a>
@@ -128,10 +128,10 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li>
-                                        <a href="" ng-click="appinf.nameEditing=true">修改名称</a>
+                                        <a href="" ng-click="editAppName(appinf)">修改名称</a>
                                     </li>
                                     <li>
-                                        <a href="" ng-click="changeAppIcon(appinf)">修改样式</a>
+                                        <a href="" ng-click="editAppIcon(appinf)">修改样式</a>
                                     </li>
                                     <li role="separator" class="divider"></li>
                                     <li>
@@ -151,15 +151,15 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center" ng-hide="appinf.nameEditing===true" style="height: 40px">
+                    <p class="text-center" ng-hide="editingApp.Id===appinf.Id" style="height: 40px">
                         <label ng-class="{ 'label label-primary': appinf.actived }">{{appinf.AppName}}</label>
                     </p>
-                    <div class="text-center" ng-show="appinf.nameEditing===true" style="height: 40px">
+                    <div class="text-center" ng-show="editingApp.Id===appinf.Id" style="height: 40px">
                         <div class="form-group">
                             <div class="input-group" ng-class="{ 'has-error': appinf.AppName===''||appinf.AppName===null }">
                                 <input class="form-control" ng-model="appinf.AppName">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-success" ng-disabled="appinf.AppName===''||appinf.AppName===null" ng-click="changeAppName(appinf)">
+                                    <button class="btn btn-success" ng-disabled="appinf.AppName===''||appinf.AppName===null" ng-click="saveAppName(editingApp)">
                                         <i class="glyphicon glyphicon-ok"></i>
                                     </button>
                                 </div>

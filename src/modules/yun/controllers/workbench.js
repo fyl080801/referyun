@@ -14,6 +14,9 @@ define([
         function ($scope, $state, $modal, $yun, popupService, appService, store) {
             $scope.appService = appService;
 
+            $scope.editingApp = null;
+            $scope.oldApp = null;
+
             // app
             $scope.addApp = function () {
                 store.post()
@@ -53,17 +56,49 @@ define([
                     });
             };
 
-            $scope.changeAppName = function (appinf) {
-                appinf.nameEditing = false;
+            $scope.editAppName = function (appinf) {
+                $scope.editingApp = appinf;
+                $scope.oldApp = $.extend({}, appinf);
             };
 
-            $scope.changeAppIcon = function (appinf) {
+            $scope.cancelEditAppName = function () {
+                $scope.editingApp.AppName = $scope.oldApp.AppName;
+                $scope.editingApp = null;
+                $scope.oldApp = null;
+            };
+
+            $scope.saveAppName = function (appinf) {
+                store.put()
+                    .append('app')
+                    .data(appinf)
+                    .then(function (result) {
+                        $scope.editingApp.AppName = result.AppName;
+                        $scope.editingApp = null;
+                        $scope.oldApp = null;
+                    });
+            };
+
+            $scope.editAppIcon = function (appinf) {
+                $scope.editingApp = appinf;
+                $scope.oldApp = $.extend({}, appinf);
                 $modal
                     .open({
-                        templateUrl: 'views/manage/icons.html'
+                        templateUrl: 'modules/yun/views/icons.html',
+                        data: $scope.editingApp
                     }).result
                     .then(function (data) {
-                        appinf.icon = data;
+                        $scope.editingApp.Icon = data;
+                        store.put()
+                            .append('app')
+                            .data(appinf)
+                            .then(function (result) {
+                                $scope.editingApp = null;
+                                $scope.oldApp = null;
+                            });
+                    }, function () {
+                        $scope.editingApp.Icon = $scope.oldApp.Icon;
+                        $scope.editingApp = null;
+                        $scope.oldApp = null;
                     });
             };
         }

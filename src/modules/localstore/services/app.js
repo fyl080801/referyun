@@ -11,6 +11,7 @@ define([
                 mapProvider.addRoute('post', '/app', 'modules.localstore.services.app', 'addApp');
                 mapProvider.addRoute('get', '/app/{appid}', 'modules.localstore.services.app', 'getApp');
                 mapProvider.addRoute('drop', '/app/{appid}', 'modules.localstore.services.app', 'deleteApp');
+                mapProvider.addRoute('put', '/app', 'modules.localstore.services.app', 'updateApp');
             }
         ])
         .service('modules.localstore.services.app', [
@@ -37,6 +38,16 @@ define([
                     } else {
                         return null;
                     }
+                };
+
+                this.updateApp = function (data) {
+                    $.each($dataStore.apps, function (idx, item) {
+                        if (item.Id === data.Id) {
+                            $dataStore.apps[idx] = data;
+                            return false;
+                        }
+                    });
+                    return data;
                 };
 
                 this.deleteApp = function (appid) {

@@ -1,9 +1,9 @@
 define([
-    'modules/manage/module'
+    'modules/yun/module'
 ], function (module) {
     'use strict';
 
-    module.controller('modules.manage.controllers.icons', [
+    module.controller('modules.yun.controllers.icons', [
         '$scope',
         function ($scope) {
             $scope.icons = [

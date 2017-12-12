@@ -3,12 +3,19 @@ define([
 ], function (services) {
     'use strict';
 
-    services.service('modules.localstore.services.role', [
-        '$dataStore',
-        function ($dataStore) {
-            this.list = function () {
+    services
+        .config([
+            'modules.localstore.providers.mapProvider',
+            function (mapProvider) {
 
-            };
-        }
-    ]);
+            }
+        ])
+        .service('modules.localstore.services.role', [
+            '$dataStore',
+            function ($dataStore) {
+                this.list = function () {
+
+                };
+            }
+        ]);
 });
