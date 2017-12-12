@@ -93,7 +93,7 @@ define([
             $scope.addGroup = function (item) {
                 $modal
                     .open({
-                        templateUrl: 'views/manage/groupForm.html',
+                        templateUrl: 'modules/manage/views/groupForm.html',
                         size: 'sm',
                         data: {
                             AppId: $stateParams.appid,
@@ -114,7 +114,7 @@ define([
             $scope.editGroup = function (item) {
                 $modal
                     .open({
-                        templateUrl: 'views/manage/groupForm.html',
+                        templateUrl: 'modules/manage/views/groupForm.html',
                         size: 'sm',
                         data: $.extend({}, item)
                     }).result
@@ -143,7 +143,7 @@ define([
             $scope.addForm = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/manage/newForm.html'
+                        templateUrl: 'modules/manage/views/newForm.html'
                     }).result
                     .then(function (data) {
                         $state.go('app.editform.layout', {

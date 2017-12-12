@@ -12,7 +12,7 @@ define([
             $scope.preview = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/manage/formPreview.html',
+                        templateUrl: 'modules/manage/views/formPreview.html',
                         size: 'lg'
                     });
             };

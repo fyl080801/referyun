@@ -18,10 +18,10 @@ define([
                         dependencies: ['modules/manage/requires'],
                         views: {
                             'header': {
-                                templateUrl: 'views/manage/editHeader.html'
+                                templateUrl: 'modules/manage/views/editHeader.html'
                             },
                             'content': {
-                                templateUrl: 'views/manage/editContent.html'
+                                templateUrl: 'modules/manage/views/editContent.html'
                             }
                         }
                     });
@@ -32,7 +32,7 @@ define([
                         dependencies: ['modules/manage/requires'],
                         views: {
                             'header': {
-                                templateUrl: 'views/manage/formHeader.html'
+                                templateUrl: 'modules/manage/views/formHeader.html'
                             },
                             'content': {
                                 template: '<div class="yun-content-full" ui-view></div>'
@@ -44,28 +44,28 @@ define([
                     .state('app.editform.layout', {
                         url: '/edit',
                         dependencies: ['modules/manage/requires'],
-                        templateUrl: 'views/manage/formLayout.html'
+                        templateUrl: 'modules/manage/views/formLayout.html'
                     });
 
                 $stateProvider
                     .state('app.editform.data', {
                         url: '/edit',
                         dependencies: ['modules/manage/requires'],
-                        templateUrl: 'views/manage/formData.html'
+                        templateUrl: 'modules/manage/views/formData.html'
                     });
 
                 $stateProvider
                     .state('app.editform.setting', {
                         url: '/edit',
                         dependencies: ['modules/manage/requires'],
-                        templateUrl: 'views/manage/formSetting.html'
+                        templateUrl: 'modules/manage/views/formSetting.html'
                     });
 
                 $stateProvider
                     .state('settings', {
                         url: '/settings/{appid}',
                         dependencies: ['modules/manage/requires'],
-                        templateUrl: 'views/manage/settings.html'
+                        templateUrl: 'modules/manage/views/settings.html'
                     });
             }
         ]);

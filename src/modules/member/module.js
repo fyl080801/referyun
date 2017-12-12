@@ -20,10 +20,10 @@ define([
                         dependencies: ['modules/member/requires'],
                         views: {
                             'header': {
-                                templateUrl: 'views/member/header.html'
+                                templateUrl: 'modules/member/views/header.html'
                             },
                             'content': {
-                                templateUrl: 'views/member/user.html'
+                                templateUrl: 'modules/member/views/user.html'
                             }
                         }
                     });
@@ -34,10 +34,10 @@ define([
                         dependencies: ['modules/member/requires'],
                         views: {
                             'header': {
-                                templateUrl: 'views/member/header.html'
+                                templateUrl: 'modules/member/views/header.html'
                             },
                             'content': {
-                                templateUrl: 'views/member/admin.html'
+                                templateUrl: 'modules/member/views/admin.html'
                             }
                         }
                     });
