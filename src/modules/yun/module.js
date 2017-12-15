@@ -4,7 +4,8 @@ define([
     'modules/yun/configs/yunEnums',
     'modules/yun/configs/rootScope',
     'modules/yun/configs/state',
-    'modules/yun/configs/storeAdapter'
+    'modules/yun/configs/storeAdapter',
+    'schema-form-bootstrap'
 ], function (application) {
     'use strict';
 
@@ -14,6 +15,7 @@ define([
         .module('modules.yun', [
             'ui.bootstrap',
             'ui.router',
+            'schemaForm',
             'modules.yun.configs'
         ])
         .config([
@@ -48,6 +50,13 @@ define([
                                 templateUrl: 'modules/yun/views/appContent.html'
                             }
                         }
+                    });
+
+                $stateProvider
+                    .state('formtest', {
+                        url: '/formtest',
+                        dependencies: ['modules/yun/requires'],
+                        templateUrl: 'modules/yun/views/formtest.html'
                     });
             }
         ]);

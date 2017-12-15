@@ -4,6 +4,7 @@ define([
     'modules/yun/services/store',
     'modules/yun/services/utility',
     'modules/yun/services/appService',
+    'modules/yun/controllers/formtest',
     'modules/yun/controllers/app',
     'modules/yun/controllers/icons',
     'modules/yun/controllers/workbench',

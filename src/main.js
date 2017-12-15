@@ -97,6 +97,30 @@
             shim: {
                 deps: ['jquery']
             }
+        },
+        'angular-sanitize': {
+            path: '../bower_components/angular-sanitize/angular-sanitize',
+            shim: {
+                deps: ['app']
+            }
+        },
+        'tv4': {
+            path: '../bower_components/tv4/tv4'
+        },
+        'objectpath': {
+            path: '../bower_components/objectpath/lib/ObjectPath'
+        },
+        'schema-form': {
+            path: '../bower_components/angular-schema-form/dist/schema-form',
+            shim: {
+                deps: ['angular-sanitize', 'tv4', 'objectpath']
+            }
+        },
+        'schema-form-bootstrap': {
+            path: '../bower_components/angular-schema-form-bootstrap/bootstrap-decorator',
+            shim: {
+                deps: ['schema-form']
+            }
         }
     },
     requires: [
@@ -105,5 +129,8 @@
         'rcss!css/yun.css',
         'localyun.modules'
     ],
-    noDebugs: []
+    noDebugs: [
+        'tv4',
+        'objectpath'
+    ]
 });
