@@ -1,7 +1,56 @@
 <div class="container" ng-controller="modules/trytest/components/formtest">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <form sf-schema="schema" sf-form="form" sf-model="model"></form>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading dropdown">
+                <i class="fa fa-pencil-square-o fa-fw"></i>
+                <strong>字段定义</strong>
+                <button type="button" class="close dropdown-toggle" data-toggle="dropdown">
+                    <span aria-hidden="true">+</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="col in columns">
+                        <a href="" ng-click="addField(col)">{{col.title}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body" style="overflow: auto;">
+                <div class="panel panel-default" ng-repeat="field in fields" style="margin-bottom: 4px">
+                    <div class="panel-heading dropdown">
+                        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+                        <a ng-href="{{'#field_'+field.key}}" data-toggle="collapse">
+                            {{schema.properties[field.key].title}}
+                        </a> -
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{formService.getFieldType(field.type).name}}</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li ng-repeat="ft in formService.fieldTypes">
+                                <a href="" ng-click="setFieldType(field, ft.type)">{{ft.name}}</a>
+                            </li>
+                        </ul>
+                        <div class="btn-group btn-group-xs pull-right">
+                            <button class="btn btn-default" ng-class="{'active btn-primary':field.required}" ng-click="setRequired(field)">必填</button>
+                            <button class="btn btn-default" ng-class="{'active btn-primary':field.readonly}" ng-click="setReadonly(field)">只读</button>
+                            <button class="btn btn-danger" ng-click="dropField(field)">移除</button>
+                        </div>
+                    </div>
+                    <div class="panel-body collapse" id="{{'field_'+field.key}}" ng-init="field.editors=formService.getFieldEditors(field)">
+                        <form sf-schema="{'type': 'object', properties:{}}" sf-form="field.editors" sf-options="options" sf-model="field"></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-eye fa-fw"></i>
+                <strong>预览</strong>
+                <button type="button" class="btn btn-xs btn-default pull-right" ng-click="$broadcast('schemaFormRedraw')">
+                    <i class="glyphicon glyphicon-repeat"></i> 刷新
+                </button>
+            </div>
+            <div class="panel-body">
+                <form sf-schema="schema" sf-form="fields" sf-options="options" sf-model="fakedata"></form>
+            </div>
         </div>
     </div>
 </div>
