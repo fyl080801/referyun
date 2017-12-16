@@ -23,10 +23,15 @@ define([
                     .append('app')
                     .data({
                         AppName: '未命名应用',
-                        Enabled: true,
-                        nameEditing: false
+                        Enabled: true
                     })
                     .then(function (result) {
+                        var addedApp = $.grep($yun.apps, function (item) {
+                            return item.Id === result.Id;
+                        });
+                        if (addedApp.length <= 0) {
+                            $yun.apps.push(result);
+                        }
                         $state.go('app.main', {
                             appid: result.Id
                         });
@@ -37,21 +42,23 @@ define([
                 popupService
                     .confirm('是否删除应用？')
                     .ok(function () {
-                        $yun.actived = null;
                         store.drop()
                             .append('app').append(appid)
                             .then(function () {
-                                store.get()
-                                    .append('app').append('')
-                                    .then(function (result) {
-                                        if (result) {
-                                            $state.go('app.main', {
-                                                appid: result.Id
-                                            });
-                                        } else {
-                                            $state.go('welcome');
-                                        }
-                                    });
+                                if ($yun.actived.Id === appid) {
+                                    $yun.actived = null;
+                                    store.get()
+                                        .append('app').append('')
+                                        .then(function (result) {
+                                            if (result) {
+                                                $state.go('app.main', {
+                                                    appid: result.Id
+                                                });
+                                            } else {
+                                                $state.go('welcome');
+                                            }
+                                        });
+                                }
                             });
                     });
             };

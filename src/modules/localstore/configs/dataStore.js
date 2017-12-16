@@ -8,13 +8,16 @@ define([
         function ($provide) {
             $provide.constant('$dataStore', {
                 /**
-                 * 
+                 * Id,
+                 * AppName,
+                 * Enabled
                  */
                 apps: [],
 
                 /**
                  * Id
                  * AppId
+                 * ParentId
                  * Name
                  * Path
                  */

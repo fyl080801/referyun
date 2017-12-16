@@ -19,7 +19,7 @@ define([
             $scope.saveGroupSorting = function () {
                 $scope.groupSorting = false;
             };
-            $scope.loadGroups = function () {
+            $scope.load = function () {
                 store.get()
                     .append('app').append($stateParams.appid).append('group')
                     .then(function (result) {
@@ -35,6 +35,22 @@ define([
                             });
                     });
             };
+            // $scope.loadGroups = function () {
+            //     store.get()
+            //         .append('app').append($stateParams.appid).append('group')
+            //         .then(function (result) {
+            //             utility.toTree(result)
+            //                 .key('Id')
+            //                 .children('Children')
+            //                 .parentKey('ParentId')
+            //                 .onEach(function (idx, item) {
+            //                     item.Level = item.Path.split('/').length - 1;
+            //                 })
+            //                 .then(function (tree) {
+            //                     $scope.groups = tree;
+            //                 });
+            //         });
+            // };
             $scope.selectGroup = function (item) {
                 if ($scope.currentGroup && $scope.currentGroup.Id === item.Id) {
                     $scope.currentGroup = null;
@@ -59,7 +75,7 @@ define([
                             .append('group')
                             .data(data)
                             .then(function (result) {
-                                //$scope.loadGroups();
+
                             });
                     });
             };
@@ -75,7 +91,7 @@ define([
                             .append('group')
                             .data(data)
                             .then(function (result) {
-                                $scope.loadGroups();
+
                             });
                     });
             };
@@ -86,7 +102,7 @@ define([
                         store.drop()
                             .append('group').append(item.Id)
                             .then(function () {
-                                $scope.loadGroups();
+
                             });
                     });
             };
