@@ -28,30 +28,45 @@ define([
                         } else {
                             $yun.actived = result;
                             store.get()
-                                .append('app')
+                                .append('app').append($stateParams.appid).append('group')
                                 .then(function (result) {
-                                    $scope.apps = result;
+                                    utility.toTree(result)
+                                        .key('Id')
+                                        .children('Children')
+                                        .parentKey('ParentId')
+                                        .onEach(function (idx, item) {
+                                            item.Level = item.Path.split('/').length - 1;
+                                        })
+                                        .then(function (tree) {
+                                            $yun.actived.groups = tree;
+                                        });
                                 });
                         }
                     });
-            };
 
-            $scope.loadGroups = function () {
                 store.get()
-                    .append('app').append($stateParams.appid).append('group')
+                    .append('app')
                     .then(function (result) {
-                        utility.toTree(result)
-                            .key('Id')
-                            .children('Children')
-                            .parentKey('ParentId')
-                            .onEach(function (idx, item) {
-                                item.Level = item.Path.split('/').length - 1;
-                            })
-                            .then(function (tree) {
-                                $scope.groups = tree;
-                            });
+                        $scope.apps = result;
                     });
             };
+
+            // $scope.loadGroups = function () {
+            //     store.get()
+            //         .append('app').append($stateParams.appid).append('group')
+            //         .then(function (result) {
+            //             utility.toTree(result)
+            //                 .key('Id')
+            //                 .children('Children')
+            //                 .parentKey('ParentId')
+            //                 .onEach(function (idx, item) {
+            //                     item.Level = item.Path.split('/').length - 1;
+            //                 })
+            //                 .then(function (tree) {
+            //                     $scope.groups = tree;
+            //                 });
+            //         });
+            // };
         }
     ]);
 });

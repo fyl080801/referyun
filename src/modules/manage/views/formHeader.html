@@ -1,18 +1,23 @@
 <div>
     <div class="navbar-header navbar-form">
-        <button class="btn btn-danger" type="button" ng-click="$state.go('app.edit', { appid: $stateParams.appid })"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button class="btn btn-danger" type="button" ng-click="$state.go('app.edit', { appid: $stateParams.appid })">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+        </button>
         <input class="form-control" ng-model="$yun.actived.forms[$stateParams.formid].formName">
     </div>
     <div class="navbar navbar-inverse navbar-fixed-top yun-headnav" style="width: 400px;">
         <ul class="nav navbar-nav" style="width: 100%">
             <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.editform.layout' }" style="width: 33.33333%">
-                <a href="" ng-click="$state.go('app.editform.layout', { appid: $stateParams.appid, formid: $stateParams.formid })"><i class="glyphicon glyphicon-th"></i> 表单设计</a>
+                <a href="" ng-click="$state.go('app.editform.layout', { appid: $stateParams.appid, formid: $stateParams.formid })">
+                    <i class="glyphicon glyphicon-th"></i> 表单设计</a>
             </li>
             <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.editform.data' }" style="width: 33.33333%">
-                <a href="" ng-click="$state.go('app.editform.data', { appid: $stateParams.appid, formid: $stateParams.formid })"><i class="glyphicon glyphicon-inbox"></i> 数据管理</a>
+                <a href="" ng-click="$state.go('app.editform.data', { appid: $stateParams.appid, formid: $stateParams.formid })">
+                    <i class="glyphicon glyphicon-inbox"></i> 数据管理</a>
             </li>
             <li class="text-center navbar-left" ng-class="{ 'active': $state.current.name==='app.editform.setting' }" style="width: 33.33333%">
-                <a href="" ng-click="$state.go('app.editform.setting', { appid: $stateParams.appid, formid: $stateParams.formid })"><i class="glyphicon glyphicon-cog"></i> 表单设置</a>
+                <a href="" ng-click="$state.go('app.editform.setting', { appid: $stateParams.appid, formid: $stateParams.formid })">
+                    <i class="glyphicon glyphicon-cog"></i> 表单设置</a>
             </li>
         </ul>
     </div>

@@ -18,9 +18,9 @@
     </div>
     <!--菜单栏-->
     <div class="tab-content yun-nav">
-        <div role="tabpanel" class="tab-pane active" id="app_menu" ng-init="loadGroups()">
-            <div tree-nav tree-data="groups" text-field="GroupName" value-field="Id" children-field="Children" level-field="Level" leaf-field="IsLeaf"
-                mode="view"></div>
+        <div role="tabpanel" class="tab-pane active" id="app_menu">
+            <div tree-nav tree-data="$yun.actived.groups" text-field="GroupName" value-field="Id" children-field="Children" level-field="Level"
+                leaf-field="IsLeaf" mode="view"></div>
         </div>
         <div role="tabpanel" class="tab-pane" id="app_favorites">
             收藏
