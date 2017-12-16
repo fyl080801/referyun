@@ -32,10 +32,15 @@ define([
                         var service = $injector.get(matched.service.name);
                         var func = service[matched.service.method];
                         var matchedArgs = func.toString().split(')')[0].split('(')[1].split(',');
+                        for (var k = 0; k < matchedArgs.length; k++) {
+                            matchedArgs[k] = matchedArgs[k].replace(' ', '');
+                        }
+
                         var funcArgs = [];
                         if (data) {
                             funcArgs.push(data);
                         }
+
                         for (var j = 0; j < matchedArgs.length; j++) {
                             var paramValue = undefined;
                             if (params[matchedArgs[j]] !== undefined) {
@@ -53,6 +58,7 @@ define([
                             apiDefer.resolve(func.apply($delegate, funcArgs));
                         } catch (ex) {
                             apiDefer.reject(ex);
+                            if (console) console.error(ex);
                         }
                     }
 

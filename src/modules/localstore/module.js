@@ -8,6 +8,7 @@ define([
     // business
     'modules/localstore/services/app',
     'modules/localstore/services/groups',
+    'modules/localstore/services/forms',
     'modules/localstore/services/role'
 ], function (application) {
     'use strict';

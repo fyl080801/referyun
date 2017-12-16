@@ -146,10 +146,17 @@ define([
                         templateUrl: 'modules/manage/views/newForm.html'
                     }).result
                     .then(function (data) {
-                        $state.go('app.editform.layout', {
-                            appid: $stateParams.appid,
-                            formid: ''
-                        });
+                        store.post()
+                            .append('app').append($stateParams.appid).append('form')
+                            .data({
+                                Name: '新表单'
+                            })
+                            .then(function (result) {
+                                $state.go('app.editform.layout', {
+                                    appid: $stateParams.appid,
+                                    formid: result.Id
+                                });
+                            });
                     });
             };
         }
