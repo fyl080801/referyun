@@ -51,13 +51,6 @@ define([
                             }
                         }
                     });
-
-                $stateProvider
-                    .state('formtest', {
-                        url: '/formtest',
-                        dependencies: ['modules/yun/requires'],
-                        templateUrl: 'modules/yun/views/formtest.html'
-                    });
             }
         ]);
 });

@@ -93,6 +93,12 @@
                 deps: ['app/application']
             }
         },
+        'trytest.modules': {
+            path: 'js/trytest.modules',
+            shim: {
+                deps: ['app/application']
+            }
+        },
 
         // requires
         'modules/yun/requires': {
@@ -111,6 +117,12 @@
             path: 'js/modules.member',
             shim: {
                 deps: ['localyun.modules', 'modules/yun/requires']
+            }
+        },
+        'modules/trytest/requires': {
+            path: 'js/modules.trytest',
+            shim: {
+                deps: ['trytest.modules']
             }
         },
 
@@ -135,13 +147,41 @@
             shim: {
                 deps: ['app']
             }
+        },
+        'angular-sanitize': {
+            path: 'js/angular-sanitize',
+            shim: {
+                deps: ['app']
+            }
+        },
+        'tv4': {
+            path: 'js/tv4'
+        },
+        'objectpath': {
+            path: 'js/ObjectPath'
+        },
+        'schema-form': {
+            path: 'js/schema-form',
+            shim: {
+                deps: ['angular-sanitize', 'tv4', 'objectpath']
+            }
+        },
+        'schema-form-bootstrap': {
+            path: 'js/bootstrap-decorator',
+            shim: {
+                deps: ['schema-form']
+            }
         }
     },
     requires: [
         'rcss!css/font-awesome.min.css',
         'rcss!css/metisMenu.min.css',
         'rcss!css/yun.css',
-        'localyun.modules'
+        'localyun.modules',
+        'trytest.modules'
     ],
-    noDebugs: []
+    noDebugs: [
+        'tv4',
+        'objectpath'
+    ]
 });

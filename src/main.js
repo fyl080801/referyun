@@ -127,7 +127,8 @@
         'rcss!../bower_components/font-awesome/css/font-awesome.min.css',
         'rcss!css/metisMenu.min.css',
         'rcss!css/yun.css',
-        'localyun.modules'
+        'localyun.modules',
+        'trytest.modules'
     ],
     noDebugs: [
         'tv4',

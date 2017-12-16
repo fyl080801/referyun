@@ -1,9 +1,9 @@
 define([
-    'modules/yun/module'
+    'modules/trytest/module'
 ], function (module) {
     'use strict';
 
-    module.controller('modules.yun.controllers.formtest', [
+    module.controller('modules/trytest/components/formtest', [
         '$scope',
         function ($scope) {
             $scope.schema = {
