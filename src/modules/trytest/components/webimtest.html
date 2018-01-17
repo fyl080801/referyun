@@ -1,0 +1,14 @@
+<div class="container" ng-controller="modules/trytest/components/webimtest">
+    <div class="input-group">
+        <input class="form-control" ng-model="message">
+        <div class="input-group-btn">
+            <button class="btn btn-default" ng-click="messageHub.sendMessage(message)">发送</button>
+        </div>
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="r in records track by $index">
+            {{r}}
+        </li>
+    </ul>
+</div>

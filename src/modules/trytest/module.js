@@ -1,6 +1,7 @@
 define([
     'app/application',
-    'schema-form-bootstrap'
+    'schema-form-bootstrap',
+    'angular-signalr-hub'
 ], function (application) {
     'use strict';
 
@@ -10,7 +11,8 @@ define([
         .module('modules.trytest', [
             'ui.bootstrap',
             'ui.router',
-            'schemaForm'
+            'schemaForm',
+            'SignalR'
         ])
         .config([
             '$stateProvider',
@@ -20,6 +22,13 @@ define([
                         url: '/formtest',
                         dependencies: ['modules/trytest/requires'],
                         templateUrl: 'modules/trytest/components/formtest.html'
+                    });
+
+                $stateProvider
+                    .state('webimtest', {
+                        url: '/webimtest',
+                        dependencies: ['modules/trytest/requires'],
+                        templateUrl: 'modules/trytest/components/webimtest.html'
                     });
             }
         ]);

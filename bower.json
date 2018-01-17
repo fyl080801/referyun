@@ -32,6 +32,7 @@
     "ng-table": "0.8.3",
     "font-awesome": "^4.7.0",
     "angular-schema-form": "^0.8.13",
-    "angular-schema-form-bootstrap": "^0.2.0"
+    "angular-schema-form-bootstrap": "^0.2.0",
+    "angular-signalr-hub": "^1.6.3"
   }
 }

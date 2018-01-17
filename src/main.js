@@ -121,6 +121,18 @@
             shim: {
                 deps: ['schema-form']
             }
+        },
+        'signalr': {
+            path: '../bower_components/signalr/jquery.signalR',
+            shim: {
+                deps: ['app']
+            }
+        },
+        'angular-signalr-hub': {
+            path: '../bower_components/angular-signalr-hub/signalr-hub',
+            shim: {
+                deps: ['signalr']
+            }
         }
     },
     requires: [
