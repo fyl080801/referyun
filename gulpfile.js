@@ -73,9 +73,9 @@ gulp.task('pack_resources', function () {
  */
 gulp.task('pack_modules', function () {
     var modules = fs.readdirSync('src/modules');
-    var builds = fs.readdirSync('config')
+    var builds = fs.readdirSync('src')
         .filter(function (file) {
-            return file.endsWith('.build.js') && !file.startsWith('requires.');
+            return file.endsWith('.modules.js');
         });
 
     for (var idx in modules) {
@@ -96,13 +96,13 @@ gulp.task('pack_modules', function () {
             .pipe(gulp.dest(jsTarget));
     }
 
-    for (var bidx in builds) {
-        var buildFile = builds[bidx];
-        var buildName = buildFile.replace('.build.js', '');
+    for (var idx in builds) {
+        var buildFile = builds[idx];
+        var buildName = buildFile.replace('.modules.js', '');
 
         gulp.src('src/**/*.js')
             .pipe(amdOptimize(buildName + '.modules', {
-                configFile: 'config/' + buildFile,
+                configFile: 'config/modules.build.js',
                 baseUrl: 'src'
             }))
             .pipe(concat(buildName + '.modules.js'))
