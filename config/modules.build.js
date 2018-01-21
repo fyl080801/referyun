@@ -14,6 +14,8 @@ require.config({
         'schema-form-bootstrap': '../bower_components/angular-schema-form-bootstrap/bootstrap-decorator.min',
         'tv4': '../bower_components/tv4/tv4',
         'objectpath': '../bower_components/objectpath/lib/ObjectPath',
+        'angular-signalr-hub': '../bower_components/angular-signalr-hub/signalr-hub.min',
+        'signalr': '../bower_components/signalr/jquery.signalR.min',
         'app/application': 'js/app.application.min'
     },
     shim: {},
@@ -24,6 +26,8 @@ require.config({
         'schema-form-bootstrap',
         'tv4',
         'objectpath',
+        'angular-signalr-hub',
+        'signalr',
         'app/application'
     ]
 });
